@@ -39,6 +39,9 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item px-2">
+                                <a class="nav-link" href="{{ route('pricing') }}">Pricing</a>
+                            </li>
+                            <li class="nav-item px-2">
                                 <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                             </li>
                             <li class="nav-item px-2 btn-item">

@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +21,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/formHandler', [FormController::class, 'index'])->name('form');
 
-Route::get('/demo', function() {
-    $tables = DB::select('SHOW TABLES');
-    $list = DB::getSchemaBuilder()->getColumnListing('users');
-    dump($list);
-    dd($tables);
-});
+/**
+ * Billing and Subscriptions
+ */
+Route::get('/billing', [BillingController::class, 'index'])->name('pricing');
+    
+Route::post('/billing-checkout', [BillingController::class, 'billingCheckout'])->name('billing-checkout');
+Route::get('/thankyou', function(){
+    return view('pages.thankyou');
+})->name('thankyou');
+
+Route::post('/webhook-event', [BillingController::class, 'webhookEvent'])->name('webhook-event');
+Route::get('/webhook-event2', [BillingController::class, 'webhookEvent2'])->name('webhook-event2');
+Route::get('/cron-event', [BillingController::class, 'cronEvent'])->name('cron-event');

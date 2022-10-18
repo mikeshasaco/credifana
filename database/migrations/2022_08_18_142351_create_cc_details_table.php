@@ -20,7 +20,8 @@ class CreateCcDetailsTable extends Migration
             $table->string('apr');
             $table->integer('cashback');
             $table->text('image');
-            $table->useCurrent()->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
