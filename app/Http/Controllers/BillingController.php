@@ -54,7 +54,7 @@ class BillingController extends Controller{
     }
 
     public function check_test(Request $request){
-        exit('kkl');
+        
         // require base_path().'/vendor/autoload.php';
         // $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
 
