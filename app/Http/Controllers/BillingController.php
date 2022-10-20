@@ -65,7 +65,7 @@ class BillingController extends Controller{
         //                     );
         // pre($newSubscriptionData);
 
-        $cc = Users::get()->toArray();
+        $cc = User::get()->toArray();
         pre($cc);
     }
 
