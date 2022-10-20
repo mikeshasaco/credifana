@@ -54,16 +54,19 @@ class BillingController extends Controller{
     }
 
     public function webhookEvent2(Request $request){
-        require base_path().'/vendor/autoload.php';
-        $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
+        // require base_path().'/vendor/autoload.php';
+        // $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
 
-        $subscription_id = 'sub_1LpsipEviaLTUto6Nk6syaTm';
+        // $subscription_id = 'sub_1LpsipEviaLTUto6Nk6syaTm';
 
-        $newSubscriptionData = $stripe->subscriptions->retrieve(
-                                $subscription_id,
-                                []
-                            );
-        pre($newSubscriptionData);
+        // $newSubscriptionData = $stripe->subscriptions->retrieve(
+        //                         $subscription_id,
+        //                         []
+        //                     );
+        // pre($newSubscriptionData);
+
+        $cc = Users::get()->toArray();
+        pre($cc);
     }
 
     public function webhookEvent(Request $request){
