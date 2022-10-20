@@ -54,7 +54,7 @@ class BillingController extends Controller{
     }
 
     public function webhookEvent2(Request $request){
-        exit('kkl');
+        
         // require base_path().'/vendor/autoload.php';
         // $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
 
@@ -66,8 +66,8 @@ class BillingController extends Controller{
         //                     );
         // pre($newSubscriptionData);
 
-        // $cc = User::all();
-        // pre($cc);
+        $cc = User::get()->toArray();
+        pre($cc);
     }
 
     public function webhookEvent(Request $request){
