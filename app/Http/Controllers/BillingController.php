@@ -192,6 +192,7 @@ class BillingController extends Controller{
     }
 
     public function cronEvent(Request $request){
+        plog("Cron Staus => checking cron");
 
         require base_path().'/vendor/autoload.php';
         $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
