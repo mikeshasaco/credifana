@@ -53,7 +53,7 @@ class BillingController extends Controller{
         exit;
     }
 
-    public function webhookEvent2(Request $request){
+    public function check_test(Request $request){
         
         // require base_path().'/vendor/autoload.php';
         // $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
