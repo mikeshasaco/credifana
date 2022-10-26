@@ -30,3 +30,4 @@ Route::post('/getproperty-details', [PropertyController::class, 'getPropertyDeta
 Route::get('/getsubscription-details/{id}', [PropertyController::class, 'getSubscriptionDetails'])->name('getsubscription-details');
 Route::get('/getproperty-history/{id}', [PropertyController::class, 'getPropertyHistory'])->name('getproperty-history');
 Route::post('/cancel-subscription', [PropertyController::class, 'cancelSubscription'])->name('cancel-subscription');
+Route::post('/property-regenerate-details', [PropertyController::class, 'propertyRegenerateDetails'])->name('property-regenerate-details');

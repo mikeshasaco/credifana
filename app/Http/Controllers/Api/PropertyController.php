@@ -134,6 +134,7 @@ class PropertyController extends Controller{
                             $response = json_decode($response,true);
                             if(isset($response) && count($response) > 0){
                                 $rentFromApi = array_sum(array_column($response,'price'))/count($response);
+                                $highestRent = max(array_column($response,'price'));
                                 
                                 $property_price = $request->property_price; // from extnsn
                                 $property_image = $request->property_image; // from extnsn
@@ -188,7 +189,7 @@ class PropertyController extends Controller{
                                 RealtorSubscription::where('user_id',$request->user_id)->update(['used_click' => ($subscriptions->used_click + 1)]);
                                 
                                 $basicData = [
-                                            "average_rent_formula" => count($response)." ".$request->property_type.", Bedroom: ".$request->bedrooms." and Bathroom: ".$request->bathrooms.", Average rent: $".$rentFromApi,
+                                            "average_rent_formula" => count($response)." ".$request->property_type.", Bedroom: ".$request->bedrooms." and Bathroom: ".$request->bathrooms.", Average rent: $".number_format($rentFromApi,2),
                                             "property_price" => number_format($property_price),
                                             "property_image" => $property_image,
                                             "property_type" => $request->property_type,
@@ -196,6 +197,7 @@ class PropertyController extends Controller{
                                             "city" => $request->city,
                                             "state" => $request->state,
                                             "average_rent" => "$".number_format($rentFromApi,2),
+                                            "highest_rent" => "$".number_format($highestRent,2),
                                             "downpayment_percent" => $downpayment_percent,
                                             "downpayment" => "$".number_format($downpayment_payment,2),
                                             "mortgage" => "$".number_format($mortgage,2),
@@ -215,7 +217,8 @@ class PropertyController extends Controller{
                                             "maintenance_percent" => $request->maintenance,
                                             "maintenance" => "$".number_format($maintenance,2),
                                             "total_monthly_cost"  => "$".number_format($totalMonthlyCost,2),
-                                            "total_yearly_cost"  => "$".number_format($totalYearlyCost,2)
+                                            "total_yearly_cost"  => "$".number_format($totalYearlyCost,2),
+                                            "user_current_plan_name"  => $subscriptions->plan_name
                                         ];
                             
                                 $advanceData = [
@@ -235,7 +238,7 @@ class PropertyController extends Controller{
                                    $dataToSend = $basicData + $advanceData;
                                 }
                                                 
-                                RealtorPropertyHistory::insert(["user_id" => $request->user_id, "pro_detail" => json_encode($dataToSend)]);
+                                $dataToSend['last_id'] = RealtorPropertyHistory::insertGetId(["user_id" => $request->user_id, "pro_detail" => json_encode($dataToSend)]);
                                 
                                 return response()->json([
                                                 'status' => 'success',
@@ -380,6 +383,48 @@ class PropertyController extends Controller{
                 'status' => 'error',
                 'message' => $e->getMessage()
             ],400);
+        }
+    }
+
+    public function propertyRegenerateDetails(Request $request) {
+        try {
+            
+            if (!isset($request->property_id) || $request->property_id == '') {
+                throw new Exception("property not exist.");
+            }
+            if (!isset($request->user_id) || $request->user_id == '') {
+                throw new Exception("user not exist.");
+            }
+            if (!isset($request->clicktype) || $request->clicktype == '') {
+                throw new Exception("soemthing went wrong, try again later.");
+            }
+            if ($request->clicktype == 'options_btn' && (!isset($request->rentValue) || $request->rentValue == '')) {
+                throw new Exception("soemthing went wrong with increase rent value.");
+            }
+
+            $proHistoryData = RealtorPropertyHistory::where('id',$request->property_id)
+                                                    ->where('user_id',$request->user_id)
+                                                    ->first();
+            if($proHistoryData == null){
+                throw new Exception("property not found.");
+            }
+
+            pre(json_decode($proHistoryData->pro_detail,true));
+
+            return response()->json([
+                            'status' => 'success',
+                            'message' => '',
+                            // 'data' => $dataToSend
+                            'data' => []
+                        ], 200);
+
+        } catch (Exception $e) {
+            
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
+
         }
     }
 
