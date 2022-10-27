@@ -196,6 +196,10 @@ class PropertyController extends Controller{
                                             "property_name" => $property_name,
                                             "city" => $request->city,
                                             "state" => $request->state,
+                                            "bedrooms" => $request->bedrooms,
+                                            "bathrooms" => $request->bathrooms,
+                                            "property_count" => count($response),
+                                            "state" => $request->state,
                                             "average_rent" => "$".number_format($rentFromApi,2),
                                             "highest_rent" => "$".number_format($highestRent,2),
                                             "downpayment_percent" => $downpayment_percent,
@@ -402,20 +406,133 @@ class PropertyController extends Controller{
                 throw new Exception("soemthing went wrong with increase rent value.");
             }
 
-            $proHistoryData = RealtorPropertyHistory::where('id',$request->property_id)
+            $propertyData = RealtorPropertyHistory::where('id',$request->property_id)
                                                     ->where('user_id',$request->user_id)
                                                     ->first();
-            if($proHistoryData == null){
+            if($propertyData == null){
                 throw new Exception("property not found.");
             }
 
-            pre(json_decode($proHistoryData->pro_detail,true));
+            $propertyData = json_decode($propertyData->pro_detail,true);
+            // pre($propertyData);
+
+            if($request->clicktype == 'options_btn'){
+                $rentFromApi = str_ireplace(array('$',','), '', $propertyData['average_rent']);
+                $rentFromApi = (($rentFromApi * $request->rentValue) / 100) + $rentFromApi;
+            }else{
+                $rentFromApi = str_ireplace(array('$',','), '', $propertyData['highest_rent']);
+            }
+            
+            $highestRent = str_ireplace(array('$',','), '', $propertyData['highest_rent']);
+            
+            $property_price = str_ireplace(array('$',','), '', $propertyData['property_price']);
+            $property_image = $propertyData['property_image'];
+            $property_name = $propertyData['property_name'];
+
+            $downpayment_percent = $propertyData['downpayment_percent'];
+            $downpayment_payment = ($property_price * $downpayment_percent) / 100;
+            $mortgage = $property_price - $downpayment_payment;
+                                    
+            $closing_cost_percent = $propertyData['closingcost_per'];
+            $closing_cost_amount = ($property_price * $closing_cost_percent) / 100;
+
+
+            $estimate_cost_of_repair = str_ireplace(array('$',','), '', $propertyData['estimate_costofrepair']);
+            $total_capital_needed = $downpayment_payment + $closing_cost_amount;
+
+            $loan_term_years = str_ireplace(' Years', '', $propertyData['loanterm']);
+            $interest_rate = str_ireplace('%', '', $propertyData['interestrate']);
+
+            //calculate principal and interest
+            $power = $loan_term_years * 12;
+            $rateformula = pow((($interest_rate / 1200) + 1), $power);
+            
+            $principal_and_interest = floor(((($mortgage * ($interest_rate / 1200)) * $rateformula) / ($rateformula - 1)));
+            
+            //Unit for multi-family if another property type then default 1 unit and user can change it
+            $unit = $propertyData['unit'];
+
+            $gross_monthly_income = $rentFromApi * $unit;
+            $gross_yearly_income = floor($gross_monthly_income * 12);
+
+            $taxes = str_ireplace(array('$',','), '', $propertyData['taxes']);
+            $insurance = str_ireplace(array('$',','), '', $propertyData['insurance']);
+
+            $vacancy = ($gross_monthly_income * $propertyData['vacancy_percent']) / 100;   
+            $maintenance = ($gross_monthly_income * $propertyData['maintenance_percent']) / 100;
+
+            $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance;
+            $totalYearlyCost = $totalMonthlyCost * 12;
+
+            $monthlyNetOperator = $gross_monthly_income - $totalMonthlyCost;
+            $yearlyNetOperator = $monthlyNetOperator * 12;
+
+            $cap_rate = number_format($yearlyNetOperator / $property_price,2);
+
+            $total_cash_flow_monthly = $monthlyNetOperator - $principal_and_interest;
+            $total_cash_flow_yearly = $total_cash_flow_monthly * 12;
+
+            $cash_on_cash_return = number_format($total_cash_flow_yearly / $downpayment_payment,2);
+
+
+            $basicData = [
+                        "average_rent_formula" => $propertyData['property_count']." ".$propertyData['property_type'].", Bedroom: ".$propertyData['bedrooms']." and Bathroom: ".$propertyData['bathrooms'].", Average rent: $".number_format($rentFromApi,2),
+                        "property_price" => number_format($property_price),
+                        "property_image" => $property_image,
+                        "property_type" => $propertyData['property_type'],
+                        "property_name" => $property_name,
+                        "city" => $propertyData['city'],
+                        "state" => $propertyData['state'],
+                        "average_rent" => "$".number_format($rentFromApi,2),
+                        "highest_rent" => "$".number_format($highestRent,2),
+                        "downpayment_percent" => $downpayment_percent,
+                        "downpayment" => "$".number_format($downpayment_payment,2),
+                        "mortgage" => "$".number_format($mortgage,2),
+                        "closingcost_per" => $closing_cost_percent,
+                        "closingcost" => "$".number_format($closing_cost_amount,2),
+                        "estimate_costofrepair" => "$".number_format($estimate_cost_of_repair,2),
+                        "total_capital_needed" => "$".number_format($total_capital_needed,2),
+                        "loanterm" => $loan_term_years." Years",
+                        "interestrate" => $interest_rate."%",
+                        "unit" => $unit,
+                        "gross_monthly_income" => "$".number_format($gross_monthly_income,2),
+                        "gross_yearly_income" => "$".number_format($gross_yearly_income,2),
+                        "taxes" => "$".number_format($taxes,2),
+                        "insurance" => "$".number_format($insurance,2),
+                        "vacancy_percent" => $propertyData['vacancy_percent'],
+                        "vacancy" => "$".number_format($vacancy,2),
+                        "maintenance_percent" => $propertyData['maintenance_percent'],
+                        "maintenance" => "$".number_format($maintenance,2),
+                        "total_monthly_cost"  => "$".number_format($totalMonthlyCost,2),
+                        "total_yearly_cost"  => "$".number_format($totalYearlyCost,2),
+                        "user_current_plan_name"  => $propertyData['user_current_plan_name']
+                    ];
+                    
+
+                            
+            $advanceData = [
+                        "principal_and_interest" => "$".number_format($principal_and_interest,2),
+                        "monthly_net_operator"  => "$".number_format($monthlyNetOperator,2),
+                        "yearly_net_operator"  => "$".number_format($yearlyNetOperator,2),
+                        "cap_rate"  => $cap_rate,
+                        "total_cash_flow_monthly"  => "$".number_format($total_cash_flow_monthly,2),
+                        "total_cash_flow_yearly"  => "$".number_format($total_cash_flow_yearly,2),
+                        "cash_on_cash_return"  => number_format($cash_on_cash_return,2)
+                        ];
+
+
+            if($propertyData['user_current_plan_name'] == "basic"){
+                $dataToSend = $basicData;
+            }else if($propertyData['user_current_plan_name'] == "standard" || $propertyData['user_current_plan_name'] == "premium"){
+                $dataToSend = $basicData + $advanceData;
+            }
+                            
+            $dataToSend['last_id'] = $request->property_id;
 
             return response()->json([
                             'status' => 'success',
                             'message' => '',
-                            // 'data' => $dataToSend
-                            'data' => []
+                            'data' => $dataToSend
                         ], 200);
 
         } catch (Exception $e) {
