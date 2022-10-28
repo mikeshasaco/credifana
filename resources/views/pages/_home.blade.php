@@ -9,10 +9,10 @@
                     <div class="col-md-6 order-md-1 order-2">
                         <div class="left-block">
                             <div class="hero-content">
-                                <h2>  
-                                    <span class="line-break"> Automation <span class="green bold special-text">tool </span>  </span>
-                                    <span class="line-break"> for <span class="orange bold special-text"> properties   </span> </span>
-                                    <span class="line-break">investments  <span class="primary bold special-text"> & analysis</span> </span>
+                                <h2>
+                                    <span class="line-break"> Shop your <span class="green bold special-text">favorite</span> stores </span>
+                                    <span class="line-break"> While know your <span class="orange bold special-text">interest</span> </span>
+                                    <span class="line-break"> <span class="primary bold special-text">Rates</span> before you buy </span>
                                 </h2>
                                 <div class="hero-btn">
                                     <a href="#" class="btn btn-outline-primary download-btn std-btn">Download now</a>
@@ -37,14 +37,14 @@
             <div class="intro-wrapper">
                 <div class="intro-que">
                     <div class="heading">
-                     <center><h2>Credifana is an automation tool that integrates with popular real estate websites to provide real time investments analysis to help find quality investment properties. </h2></center>   
+                        <h2>What can Credifana do?</h2>
                     </div>
                 </div>
-                <!-- <div class="intro-ans content">
+                <div class="intro-ans content">
                     <p>
-                        Credifana is a google chrome extension that allows you to search real estate properties from top websites, to calulate monthly and yearly revenue with a click of a button.
+                        Transform the way you look at your credit cards, stay ahead of these credit card companies, know your balance, interest rates, number of months it would take to lower balance all while you shop
                     </p>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
@@ -53,7 +53,7 @@
         <div class="container-lg">
             <div class="process-wrapper">
                 <div class="heading">
-                    <h2>Credifana helps potential property buyers, learn the numbers before purchasing investment properties.</h2>
+                    <h2>How Credifana works</h2>
                 </div>
                 <div class="process-steps">
                     <div class="step">
@@ -62,19 +62,13 @@
                                 <div class="col-md-6 order-1 order-md-1">
                                     <div class="left-block">
                                         <div class="heading">
-                                            <h3>
-                                            How Credifana Works
-                                            </h3>
+                                            <h3>Select your credit card</h3>
                                         </div>
                                         <div class="content">
-                                            <!-- <p>Download Credifana Extension</p>
-                                            <p>Browse realtor websites thats intergated with Credifana. (realtor.com) </p>
-                                            <p>Select any property that your interested</p>
-                                            <p>Open the Credifana extension and click evaluate!</p>
-                                            <p>Credifana will then automate</p> -->
-
-                                            <p>Credifana integrates with popular realtor websites that allow users to browse properties, analysis property metrics in real-time without having to change tabs. Credifana automation tool will determine property estimated gross revenue monthly/yearly, net operator cost for that individual property and many more to help with the property evaluation process.   </p>
-
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, id, obcaecati sequi laudantium praesentium facere pariatur expedita impedit repudiandae dicta ullam accusamus voluptate ut asperiores consequatur quam error sit laboriosam?
+                                                Temporibus hic voluptatem quas officia unde odit porro corporis possimus perspiciatis dolor quae esse ut rem commodi doloremque, ratione totam deleniti quaerat, fugit, nesciunt necessitatibus ex magnam? Ipsum, possimus veniam.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -101,13 +95,13 @@
                                 <div class="col-md-6 order-1 order-md-2">
                                     <div class="right-block">
                                         <div class="heading">
-                                            <h3>Benefits using Credifana</h3>
+                                            <h3>Select item from your favorite store</h3>
                                         </div>
                                         <div class="content">
-                                            <p>Average Rent - Credifana pulls rent analytics from all accross the country to give the most accurate rent price.   </p>
-                                            <p>Gross Revenue - Credifana calulates properties expenses and maintenance fees to give the most accurate results when determining annual income a property can generate.   </p>
-                                            <p>Net Revenue  - Credifana calulates properties revenue after expenses are paid for in any location to give accurate results.   </p>
-
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, id, obcaecati sequi laudantium praesentium facere pariatur expedita impedit repudiandae dicta ullam accusamus voluptate ut asperiores consequatur quam error sit laboriosam?
+                                                Temporibus hic voluptatem quas officia unde odit porro corporis possimus perspiciatis dolor quae esse ut rem commodi doloremque, ratione totam deleniti quaerat, fugit, nesciunt necessitatibus ex magnam? Ipsum, possimus veniam.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -120,11 +114,13 @@
                                 <div class="col-md-6 order-1 order-md-1">
                                     <div class="left-block">
                                         <div class="heading">
-                                            <h3>Keep Track of property History</h3>
+                                            <h3>Add item to cart</h3>
                                         </div>
                                         <div class="content">
-                                            <p>Credifana saves a portifolo of every property search so keeping track of future investment is made easy.</p>
-                                                
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, id, obcaecati sequi laudantium praesentium facere pariatur expedita impedit repudiandae dicta ullam accusamus voluptate ut asperiores consequatur quam error sit laboriosam?
+                                                Temporibus hic voluptatem quas officia unde odit porro corporis possimus perspiciatis dolor quae esse ut rem commodi doloremque, ratione totam deleniti quaerat, fugit, nesciunt necessitatibus ex magnam? Ipsum, possimus veniam.
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -147,7 +143,7 @@
         <div class="container-lg">
             <div class="stores-list-wrapper">
                 <div class="heading">
-                    <h3>Keep track of property Searches</h3>
+                    <h3>Current store integrated with credifana</h3>
                 </div>
                 <div class="stores-list">
                     <div class="images">
