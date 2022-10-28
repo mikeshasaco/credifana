@@ -159,19 +159,6 @@
         </div>
     </section>
 
-    <section class="add-store-section">
-        <div class="container">
-            <div class="store-add-contact">
-                <div class="heading">
-                    <h2>Want us to add your favorite store? Tell us</h2>
-                </div>
-                <div class="contact-btn">
-                    <a href="{{ route('contact') }}" class="btn btn-outline-primary std-btn">Contact us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="cc-repair-section">
         <div class="container">
             <div class="repair-container">
