@@ -23,7 +23,7 @@
                     <div class="col-md-6 order-md-2 order-1">
                         <div class="right-block">
                             <div class="hero-image">
-                                <img src="{{ asset('images/displaycredifanav1.gif') }}" alt="Hero image" />
+                                <img src="{{ asset('images/heroimage.png') }}" alt="Hero image" />
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                                 <div class="col-md-6 order-2 order-md-2">
                                     <div class="right-block">
                                         <div class="image">
-                                            <img src="{{ asset('images/dummy.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                            <img src="{{ asset('images/first.gif') }}" alt="Dummy image" width="440px" height="440px" />
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                 <div class="col-md-6 order-2 order-md-1">
                                     <div class="left-block">
                                         <div class="image">
-                                            <img src="{{ asset('images/dummy.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                            <img src="{{ asset('images/second.gif') }}" alt="Dummy image" width="440px" height="440px" />
                                         </div>
                                     </div>
                                 </div>
