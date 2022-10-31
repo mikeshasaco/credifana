@@ -11,8 +11,8 @@
                             <div class="hero-content">
                                 <h2>  
                                     <span class="line-break"> Automation <span class="green bold special-text">tool </span>  </span>
-                                    <span class="line-break"> for <span class="orange bold special-text"> properties   </span> </span>
-                                    <span class="line-break">investments  <span class="primary bold special-text"> & analysis</span> </span>
+                                    <span class="line-break"> for <span style="display:inline-block;" class="line-break orange bold special-text"> properties   </span> </span>
+                                    <span class="line-break">investments  <span style="display:inline-block;" class="line-break primary bold special-text"> & analysis</span> </span>
                                 </h2>
                                 <div class="hero-btn">
                                     <a href="#" class="btn btn-outline-primary download-btn std-btn">Download now</a>
@@ -23,7 +23,7 @@
                     <div class="col-md-6 order-md-2 order-1">
                         <div class="right-block">
                             <div class="hero-image">
-                                <img src="{{ asset('images/main-hero.png') }}" alt="Hero image" />
+                                <img src="{{ asset('images/displaycredifanav1.gif') }}" alt="Hero image" />
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                                             <p>Open the Credifana extension and click evaluate!</p>
                                             <p>Credifana will then automate</p> -->
 
-                                            <p>Credifana integrates with popular realtor websites that allow users to browse properties, analysis property metrics in real-time without having to change tabs. Credifana automation tool will determine property estimated gross revenue monthly/yearly, net operator cost for that individual property and many more to help with the property evaluation process.   </p>
+                                            <p>Credifana integrates with popular realtor websites that allow users to browse properties, analysis property metrics in real-time without having to change tabs.   </p>
 
                                         </div>
                                     </div>
@@ -101,13 +101,13 @@
                                 <div class="col-md-6 order-1 order-md-2">
                                     <div class="right-block">
                                         <div class="heading">
-                                            <h3>Benefits using Credifana</h3>
+                                            <h3>Automate Your Property Investment Portfolio </h3>
                                         </div>
                                         <div class="content">
-                                            <p>Average Rent - Credifana pulls rent analytics from all accross the country to give the most accurate rent price.   </p>
+                                            <!-- <p>Average Rent - Credifana pulls rent analytics from all accross the country to give the most accurate rent price.   </p>
                                             <p>Gross Revenue - Credifana calulates properties expenses and maintenance fees to give the most accurate results when determining annual income a property can generate.   </p>
-                                            <p>Net Revenue  - Credifana calulates properties revenue after expenses are paid for in any location to give accurate results.   </p>
-
+                                            <p>Net Revenue  - Credifana calulates properties revenue after expenses are paid for in any location to give accurate results.   </p> -->
+                                            <p>Credifana automation tool will determine property estimated gross revenue monthly/yearly, net operator cost for that individual property and many more to help with the property evaluation process. </p>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@
                                 <div class="col-md-6 order-1 order-md-1">
                                     <div class="right-block">
                                         <div class="image">
-                                            <img src="{{ asset('images/dummy.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                            <img src="{{ asset('images/historycredifianav1.gif') }}" alt="Dummy image" width="440px" height="440px" />
                                         </div>
                                     </div>
                                 </div>
@@ -147,12 +147,11 @@
         <div class="container-lg">
             <div class="stores-list-wrapper">
                 <div class="heading">
-                    <h3>Keep track of property Searches</h3>
+                    <h3>Websites Integrated With Credifana</h3>
                 </div>
                 <div class="stores-list">
                     <div class="images">
-                        <img src="{{ asset('images/stores/amazon.png') }}" alt="Amazon" width="200" height="100" />
-                        <img src="{{ asset('images/stores/ebay.png') }}" alt="Ebay" width="200" height="100" />
+                        <img src="{{ asset('images/stores/realtorlogo.jpeg') }}" alt="Realtor" width="200" height="100" />
                     </div>
                 </div>
             </div>
@@ -163,7 +162,7 @@
         <div class="container">
             <div class="repair-container">
                 <div class="heading">
-                    <h2>Repair your Credit Card</h2>
+                    <h2>Tutorial </h2>
                 </div>
                 <div class="content">
                     <p>
