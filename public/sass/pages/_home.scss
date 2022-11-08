@@ -161,6 +161,8 @@ section {
                         }
                         .image {
                             text-align: center;
+                            height: 450px;
+                            overflow-y: scroll;
                             img {
                                 max-width: 100%;
                                 height: auto;

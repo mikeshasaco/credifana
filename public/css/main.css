@@ -417,6 +417,8 @@ section.process-section .process-wrapper .process-steps .step .step-wrapper .con
 }
 section.process-section .process-wrapper .process-steps .step .step-wrapper .image {
   text-align: center;
+  height: 450px;
+  overflow-y: scroll;
 }
 section.process-section .process-wrapper .process-steps .step .step-wrapper .image img {
   max-width: 100%;
