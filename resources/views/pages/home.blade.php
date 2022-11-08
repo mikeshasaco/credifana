@@ -161,16 +161,13 @@
     <section class="cc-repair-section">
         <div class="container">
             <div class="repair-container">
-                <div class="heading">
-                    <h2>Tutorial </h2>
-                </div>
                 <div class="content">
                     <p>
-                        Credit is very important us and if you are interested in repairing your credit let us know we would be happy to help you
+                        if you interested in buying real estate, <br/> you need Credifana
                     </p>
                 </div>
                 <div class="contact-btn">
-                    <a href="{{ route('contact') }}" class="btn btn-outline-primary std-btn-full">Contact us</a>
+                    <a href="#" class="btn std-btn-full"><b> + Add to Chrome</b> <span>it's free!</span></a>
                 </div>
             </div>
         </div>

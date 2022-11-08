@@ -252,13 +252,10 @@ section {
     }
 
     &.cc-repair-section {
+        background-color: #1A5EFF;
+        text-align: center;
+        color:#fff;
         .repair-container {
-            .heading {
-                margin-bottom: 15px;
-                h2 {
-                    color: $primary;
-                }
-            }
             .content {
                 margin-bottom: 30px;
             }

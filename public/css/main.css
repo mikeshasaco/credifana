@@ -489,11 +489,10 @@ section.add-store-section::before {
 section.add-store-section .store-add-contact {
   text-align: center;
 }
-section.cc-repair-section .repair-container .heading {
-  margin-bottom: 15px;
-}
-section.cc-repair-section .repair-container .heading h2 {
-  color: #748eff;
+section.cc-repair-section {
+  background-color: #1A5EFF;
+  text-align: center;
+  color: #fff;
 }
 section.cc-repair-section .repair-container .content {
   margin-bottom: 30px;
