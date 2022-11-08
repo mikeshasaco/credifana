@@ -24,23 +24,23 @@
     }
 }
 .bold-28 {
-    @include font(28px, 600, normal, 34px, $font-fredoka);
+    @include font(32px, 600, normal, 36px, $font-fredoka);
     @include max-media($sm) {
         font-size: 24px;
         line-height: 28px;
     }
 }
 .bold-30 {
-    @include font(30px, 600, normal, 36px, $font-fredoka);
+    @include font(32px, 600, normal, 36px, $font-fredoka);
     @include max-media($sm) {
         font-size: 28px;
         line-height: 34px;
     }
 }
 .std-20 {
-    @include font(20px, normal, normal, 26px, $font-fredoka);
+    @include font(26px, normal, normal, 26px, $font-fredoka);
     @include max-media($sm) {
         font-size: 16px;
-        line-height: 20px;
+        line-height: 30px;
     }
 }

@@ -78,10 +78,10 @@ body {
 }
 
 .bold-28, section .heading h3 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
   font-style: normal;
-  line-height: 34px;
+  line-height: 36px;
   font-family: "Fredoka", sans-serif;
 }
 @media (max-width: 576px) {
@@ -92,7 +92,7 @@ body {
 }
 
 .bold-30, section.contact-hero-section .right-block .top-content .heading h1, section .heading h2 {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 600;
   font-style: normal;
   line-height: 36px;
@@ -106,7 +106,7 @@ body {
 }
 
 .std-20, footer .copyright p, section .content p, .std-btn, .std-btn-full {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: normal;
   font-style: normal;
   line-height: 26px;
@@ -115,7 +115,7 @@ body {
 @media (max-width: 576px) {
   .std-20, footer .copyright p, section .content p, .std-btn, .std-btn-full {
     font-size: 16px;
-    line-height: 20px;
+    line-height: 30px;
   }
 }
 
