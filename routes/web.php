@@ -31,6 +31,14 @@ Route::get('/thankyou', function(){
     return view('pages.thankyou');
 })->name('thankyou');
 
+Route::get('/privacy-policy', function(){
+    return view('pages.privacy-policy');
+})->name('privacy-policy');
+
+Route::get('/terms-of-use', function(){
+    return view('pages.terms-of-use');
+})->name('terms-of-use');
+
 Route::post('/webhook-event', [BillingController::class, 'webhookEvent'])->name('webhook-event');
 Route::get('/test', [BillingController::class, 'check_test'])->name('test');
 Route::get('/cron-event', [BillingController::class, 'cronEvent'])->name('cron-event');

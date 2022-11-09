@@ -494,8 +494,26 @@ section.cc-repair-section {
   text-align: center;
   color: #fff;
 }
-section.cc-repair-section .repair-container .content {
+section.cc-repair-section .container .repair-container .content {
   margin-bottom: 30px;
+}
+section.cc-repair-section .container .repair-container .contact-btn a {
+  background-color: white !important;
+  border-radius: 50px;
+  color: #1A5EFF;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid white;
+  font-family: "Fredoka", sans-serif;
+}
+section.cc-repair-section .container .repair-container .contact-btn a span {
+  font-size: 18px;
+  margin-left: 10px;
+}
+section.cc-repair-section .container .repair-container .contact-btn a:hover {
+  background-color: transparent !important;
+  border-color: white !important;
+  color: white !important;
 }
 
 section.contact-hero-section .left-block .image img {

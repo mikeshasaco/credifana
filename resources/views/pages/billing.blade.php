@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('styles')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" />
-@endsection
-
 @section('content')
 
     <section class="contact-hero-section">

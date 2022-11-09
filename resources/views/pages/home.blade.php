@@ -167,12 +167,11 @@
                     </p>
                 </div>
                 <div class="contact-btn">
-                    <a href="#" class="btn std-btn-full"><b> + Add to Chrome</b> <span>it's free!</span></a>
+                    <a href="#" class="btn std-btn-full"><b> + Add to Chrome</b> <span> it's free!</span></a>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('scripts')

@@ -254,10 +254,33 @@ section {
     &.cc-repair-section {
         background-color: #1A5EFF;
         text-align: center;
-        color:#fff;
-        .repair-container {
-            .content {
-                margin-bottom: 30px;
+        color: #fff;
+        .container{
+            .repair-container{
+                .content{
+                    margin-bottom: 30px;
+                }
+                .contact-btn{
+                    a{
+                        background-color: white !important;
+                        border-radius: 50px;
+                        color: #1A5EFF;
+                        display: inline-flex;
+                        align-items: center;
+                        border: 1px solid white;
+                        font-family: "Fredoka",
+                            sans-serif;
+                        span{
+                            font-size: 18px;
+                            margin-left: 10px;
+                        }
+                        &:hover{
+                            background-color: transparent !important;
+                            border-color: white !important;
+                            color: white !important;
+                        }
+                    }
+                }
             }
         }
     }
