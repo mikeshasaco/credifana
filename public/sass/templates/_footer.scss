@@ -11,6 +11,16 @@ footer {
             @extend .std-20;
             font-size: 18px;
             color: #fff;
+        &:last-child{
+            a{
+                color:#fff !important;
+                text-decoration: none;
+                &:hover{
+                    color:#748eff !important;
+                }
+            }
         }
+        }
+        
     }
 }

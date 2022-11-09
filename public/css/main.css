@@ -291,6 +291,13 @@ footer .copyright p {
   font-size: 18px;
   color: #fff;
 }
+footer .copyright p:last-child a {
+  color: #fff !important;
+  text-decoration: none;
+}
+footer .copyright p:last-child a:hover {
+  color: #748eff !important;
+}
 
 section.hero-container {
   display: flex;
