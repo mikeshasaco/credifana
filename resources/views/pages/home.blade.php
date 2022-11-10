@@ -22,8 +22,10 @@
                     </div>
                     <div class="col-md-6 order-md-2 order-1">
                         <div class="right-block">
-                            <div class="hero-image">
-                                <img src="{{ asset('images/heroimage.png') }}" alt="Hero image" />
+                            <div class="xyz">
+                                <div class="hero-image">
+                                    <img src="{{ asset('images/heroimage.png') }}" alt="Hero image" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -80,8 +82,10 @@
                                 </div>
                                 <div class="col-md-6 order-2 order-md-2">
                                     <div class="right-block">
-                                        <div class="image">
-                                            <img src="{{ asset('images/first.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                        <div class="image-wrapper">
+                                            <div class="image">
+                                                <img src="{{ asset('images/first.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -93,8 +97,10 @@
                             <div class="row">
                                 <div class="col-md-6 order-2 order-md-1">
                                     <div class="left-block">
-                                        <div class="image">
-                                            <img src="{{ asset('images/second.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                        <div class="image-wrapper">
+                                            <div class="image">
+                                                <img src="{{ asset('images/second.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -130,8 +136,10 @@
                                 </div>
                                 <div class="col-md-6 order-1 order-md-1">
                                     <div class="right-block">
-                                        <div class="image">
-                                            <img src="{{ asset('images/third.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                        <div class="image-wrapper">
+                                            <div class="image">
+                                                <img src="{{ asset('images/third.png') }}" alt="Dummy image" width="440px" height="440px" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -159,6 +167,9 @@
     </section>
 
     <section class="cc-repair-section">
+        <div class="img-container">
+            <img src="images/realtor-full.png" alt="">
+        </div>
         <div class="container">
             <div class="repair-container">
                 <div class="content">

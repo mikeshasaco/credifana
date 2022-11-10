@@ -144,6 +144,58 @@ section {
                         margin-bottom: 30px;
                     }
                     .step-wrapper {
+                        .row{
+                            div{
+                                &:last-child{
+                                    div{
+                                        .image-wrapper{
+                                            border-radius: 20px;
+                                            padding: 10px;
+                                            box-shadow: 0px 0px 20px #748eff;
+                                            display: inline-block;
+                                            .image{
+                                                padding-right: 10px;
+                                                &::-webkit-scrollbar{
+                                                    width: 10px;
+                                                }
+                                                &::-webkit-scrollbar-track{
+                                                    background-color: white !important;
+                                                    border-radius: 10px;
+                                                }
+                                                &::-webkit-scrollbar-thumb{
+                                                    background-color: #748eff;
+                                                    border-radius: 10px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &:first-child {
+                                    div{
+                                        .image-wrapper {
+                                            border-radius: 20px;
+                                            padding: 10px;
+                                            box-shadow: 0px 0px 20px #748eff;
+                                            display: inline-block;
+                                            .image {
+                                                    padding-right: 10px;
+                                                    &::-webkit-scrollbar{
+                                                        width: 10px;
+                                                    }
+                                                    &::-webkit-scrollbar-track{
+                                                        background-color: white !important;
+                                                        border-radius: 10px;
+                                                    }
+                                                    &::-webkit-scrollbar-thumb{
+                                                        background-color: #748eff;
+                                                        border-radius: 10px;
+                                                    }
+                                                }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         .heading {
                             margin-bottom: 15px;
                             @include max-media($sm) {
@@ -161,7 +213,7 @@ section {
                         }
                         .image {
                             text-align: center;
-                            height: 450px;
+                            height: 600px;
                             overflow-y: scroll;
                             img {
                                 max-width: 100%;
@@ -252,10 +304,21 @@ section {
     }
 
     &.cc-repair-section {
-        background-color: #1A5EFF;
+        background-color: white;
         text-align: center;
-        color: #fff;
+        color: #748eff;
+        .img-container{
+            padding: 10px;
+            display: inline-block;
+            box-shadow: 0px 0px 20px #748eff;
+            overflow: hidden;
+            border-radius: 20px;
+            img{
+                width: 700px;
+            }
+        }
         .container{
+            margin-top: 30px;
             .repair-container{
                 .content{
                     margin-bottom: 30px;
@@ -264,10 +327,10 @@ section {
                     a{
                         background-color: white !important;
                         border-radius: 50px;
-                        color: #1A5EFF;
+                        color: #748eff;
                         display: inline-flex;
                         align-items: center;
-                        border: 1px solid white;
+                        border: 1px solid #748eff;
                         font-family: "Fredoka",
                             sans-serif;
                         span{
@@ -275,8 +338,8 @@ section {
                             margin-left: 10px;
                         }
                         &:hover{
-                            background-color: transparent !important;
-                            border-color: white !important;
+                            background-color: #748eff !important;
+                            border-color: #748eff !important;
                             color: white !important;
                         }
                     }
@@ -285,3 +348,4 @@ section {
         }
     }
 }
+

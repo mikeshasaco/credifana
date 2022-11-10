@@ -401,6 +401,46 @@ section.process-section .process-wrapper .process-steps .step {
     margin-bottom: 30px;
   }
 }
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:last-child div .image-wrapper {
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 0px 20px #748eff;
+  display: inline-block;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:last-child div .image-wrapper .image {
+  padding-right: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:last-child div .image-wrapper .image::-webkit-scrollbar {
+  width: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:last-child div .image-wrapper .image::-webkit-scrollbar-track {
+  background-color: white !important;
+  border-radius: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:last-child div .image-wrapper .image::-webkit-scrollbar-thumb {
+  background-color: #748eff;
+  border-radius: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:first-child div .image-wrapper {
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 0px 20px #748eff;
+  display: inline-block;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:first-child div .image-wrapper .image {
+  padding-right: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:first-child div .image-wrapper .image::-webkit-scrollbar {
+  width: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:first-child div .image-wrapper .image::-webkit-scrollbar-track {
+  background-color: white !important;
+  border-radius: 10px;
+}
+section.process-section .process-wrapper .process-steps .step .step-wrapper .row div:first-child div .image-wrapper .image::-webkit-scrollbar-thumb {
+  background-color: #748eff;
+  border-radius: 10px;
+}
 section.process-section .process-wrapper .process-steps .step .step-wrapper .heading {
   margin-bottom: 15px;
 }
@@ -424,7 +464,7 @@ section.process-section .process-wrapper .process-steps .step .step-wrapper .con
 }
 section.process-section .process-wrapper .process-steps .step .step-wrapper .image {
   text-align: center;
-  height: 450px;
+  height: 600px;
   overflow-y: scroll;
 }
 section.process-section .process-wrapper .process-steps .step .step-wrapper .image img {
@@ -497,9 +537,22 @@ section.add-store-section .store-add-contact {
   text-align: center;
 }
 section.cc-repair-section {
-  background-color: #1A5EFF;
+  background-color: white;
   text-align: center;
-  color: #fff;
+  color: #748eff;
+}
+section.cc-repair-section .img-container {
+  padding: 10px;
+  display: inline-block;
+  box-shadow: 0px 0px 20px #748eff;
+  overflow: hidden;
+  border-radius: 20px;
+}
+section.cc-repair-section .img-container img {
+  width: 700px;
+}
+section.cc-repair-section .container {
+  margin-top: 30px;
 }
 section.cc-repair-section .container .repair-container .content {
   margin-bottom: 30px;
@@ -507,10 +560,10 @@ section.cc-repair-section .container .repair-container .content {
 section.cc-repair-section .container .repair-container .contact-btn a {
   background-color: white !important;
   border-radius: 50px;
-  color: #1A5EFF;
+  color: #748eff;
   display: inline-flex;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid #748eff;
   font-family: "Fredoka", sans-serif;
 }
 section.cc-repair-section .container .repair-container .contact-btn a span {
@@ -518,8 +571,8 @@ section.cc-repair-section .container .repair-container .contact-btn a span {
   margin-left: 10px;
 }
 section.cc-repair-section .container .repair-container .contact-btn a:hover {
-  background-color: transparent !important;
-  border-color: white !important;
+  background-color: #748eff !important;
+  border-color: #748eff !important;
   color: white !important;
 }
 
@@ -693,6 +746,24 @@ section.contact-hero-section .right-block .contact-form .captcha p {
   line-height: 20px;
   margin-bottom: 28px;
   color: #989898;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #748eff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8499f6;
 }
 
 /*# sourceMappingURL=main.css.map */
