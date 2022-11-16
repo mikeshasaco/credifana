@@ -201,7 +201,6 @@ class PropertyController extends Controller{
                                             "property_count" => count($response),
                                             "state" => $request->state,
                                             "average_rent" => "$".number_format($rentFromApi,2),
-                                            "highest_rent" => "$".number_format($highestRent,2),
                                             "downpayment_percent" => $downpayment_percent,
                                             "downpayment" => "$".number_format($downpayment_payment,2),
                                             "mortgage" => "$".number_format($mortgage,2),
@@ -226,6 +225,7 @@ class PropertyController extends Controller{
                                         ];
                             
                                 $advanceData = [
+                                            "highest_rent" => "$".number_format($highestRent,2),
                                             "principal_and_interest" => "$".number_format($principal_and_interest,2),
                                             "monthly_net_operator"  => "$".number_format($monthlyNetOperator,2),
                                             "yearly_net_operator"  => "$".number_format($yearlyNetOperator,2),
@@ -484,7 +484,6 @@ class PropertyController extends Controller{
                         "city" => $propertyData['city'],
                         "state" => $propertyData['state'],
                         "average_rent" => "$".number_format($rentFromApi,2),
-                        "highest_rent" => "$".number_format($highestRent,2),
                         "downpayment_percent" => $downpayment_percent,
                         "downpayment" => "$".number_format($downpayment_payment,2),
                         "mortgage" => "$".number_format($mortgage,2),
@@ -511,6 +510,7 @@ class PropertyController extends Controller{
 
                             
             $advanceData = [
+                        "highest_rent" => "$".number_format($highestRent,2),
                         "principal_and_interest" => "$".number_format($principal_and_interest,2),
                         "monthly_net_operator"  => "$".number_format($monthlyNetOperator,2),
                         "yearly_net_operator"  => "$".number_format($yearlyNetOperator,2),

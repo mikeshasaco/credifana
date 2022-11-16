@@ -547,9 +547,11 @@ section.cc-repair-section .img-container {
   box-shadow: 0px 0px 20px #748eff;
   overflow: hidden;
   border-radius: 20px;
+  margin: 10px;
 }
 section.cc-repair-section .img-container img {
   width: 700px;
+  max-width: 100%;
 }
 section.cc-repair-section .container {
   margin-top: 30px;
