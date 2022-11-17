@@ -201,6 +201,7 @@ class PropertyController extends Controller{
                                             "property_count" => count($response),
                                             "state" => $request->state,
                                             "average_rent" => "$".number_format($rentFromApi,2),
+                                            "principal_and_interest" => "$".number_format($principal_and_interest,2),
                                             "downpayment_percent" => $downpayment_percent,
                                             "downpayment" => "$".number_format($downpayment_payment,2),
                                             "mortgage" => "$".number_format($mortgage,2),
@@ -221,26 +222,27 @@ class PropertyController extends Controller{
                                             "maintenance" => "$".number_format($maintenance,2),
                                             "total_monthly_cost"  => "$".number_format($totalMonthlyCost,2),
                                             "total_yearly_cost"  => "$".number_format($totalYearlyCost,2),
-                                            "user_current_plan_name"  => $subscriptions->plan_name
+                                            "user_current_plan_name"  => $subscriptions->plan_name,
+                                            "highest_rent" => '',
+                                            "monthly_net_operator"  => '',
+                                            "yearly_net_operator"  => '',
+                                            "cap_rate"  => '',
+                                            "total_cash_flow_monthly"  => '',
+                                            "total_cash_flow_yearly"  => '',
+                                            "cash_on_cash_return"  => ''
                                         ];
-                            
-                                $advanceData = [
-                                            "highest_rent" => "$".number_format($highestRent,2),
-                                            "principal_and_interest" => "$".number_format($principal_and_interest,2),
-                                            "monthly_net_operator"  => "$".number_format($monthlyNetOperator,2),
-                                            "yearly_net_operator"  => "$".number_format($yearlyNetOperator,2),
-                                            "cap_rate"  => $cap_rate,
-                                            "total_cash_flow_monthly"  => "$".number_format($total_cash_flow_monthly,2),
-                                            "total_cash_flow_yearly"  => "$".number_format($total_cash_flow_yearly,2),
-                                            "cash_on_cash_return"  => number_format($cash_on_cash_return,2)
-                                          ];
 
-
-                                if($subscriptions->plan_name == "basic"){
-                                    $dataToSend = $basicData;
-                                }else if($subscriptions->plan_name == "standard" || $subscriptions->plan_name == "premium"){
-                                   $dataToSend = $basicData + $advanceData;
+                                if($subscriptions->plan_name != "basic"){
+                                    $basicData["highest_rent"] = "$".number_format($highestRent,2);
+                                    $basicData["monthly_net_operator"]  = "$".number_format($monthlyNetOperator,2);
+                                    $basicData["yearly_net_operator"]  = "$".number_format($yearlyNetOperator,2);
+                                    $basicData["cap_rate"]  = $cap_rate;
+                                    $basicData["total_cash_flow_monthly"]  = "$".number_format($total_cash_flow_monthly,2);
+                                    $basicData["total_cash_flow_yearly"]  = "$".number_format($total_cash_flow_yearly,2);
+                                    $basicData["cash_on_cash_return"]  = number_format($cash_on_cash_return,2);
                                 }
+
+                                $dataToSend = $basicData;
                                                 
                                 $dataToSend['last_id'] = RealtorPropertyHistory::insertGetId(["user_id" => $request->user_id, "pro_detail" => json_encode($dataToSend)]);
                                 
@@ -370,7 +372,9 @@ class PropertyController extends Controller{
             }
 
             //check user exist or not
-            $user = User::where('id',$request->id)->first();
+            $user = User::join('realtor_subscriptions','users.id','=','realtor_subscriptions.user_id')
+                        ->select('users.*','plan_name')
+                        ->where('users.id',$request->id)->first();
             if($user == null){
                 throw new Exception("user not found.");
             }
@@ -379,7 +383,7 @@ class PropertyController extends Controller{
             return response()->json([
                 'status' => 'success',
                 'message' => '',
-                'data' => $proHistoryData
+                'data' => ['user_plan_name' => $user->plan_name, 'proHistoryData' => $proHistoryData]
             ],200);
 
         } catch (Exception $e) {
@@ -406,6 +410,8 @@ class PropertyController extends Controller{
                 throw new Exception("soemthing went wrong with increase rent value.");
             }
 
+            $userSubData = RealtorSubscription::where('user_id',$request->user_id)->first();
+
             $propertyData = RealtorPropertyHistory::where('id',$request->property_id)
                                                     ->where('user_id',$request->user_id)
                                                     ->first();
@@ -419,8 +425,10 @@ class PropertyController extends Controller{
             if($request->clicktype == 'options_btn'){
                 $rentFromApi = str_ireplace(array('$',','), '', $propertyData['average_rent']);
                 $rentFromApi = (($rentFromApi * $request->rentValue) / 100) + $rentFromApi;
-            }else{
+            }else if($request->clicktype == 'highest_rent'){
                 $rentFromApi = str_ireplace(array('$',','), '', $propertyData['highest_rent']);
+            }else{
+                $rentFromApi = str_ireplace(array('$',','), '', $propertyData['average_rent']);
             }
             
             $highestRent = str_ireplace(array('$',','), '', $propertyData['highest_rent']);
@@ -474,7 +482,7 @@ class PropertyController extends Controller{
 
             $cash_on_cash_return = number_format($total_cash_flow_yearly / $downpayment_payment,2);
 
-
+            
             $basicData = [
                         "average_rent_formula" => $propertyData['property_count']." ".$propertyData['property_type'].", Bedroom: ".$propertyData['bedrooms']." and Bathroom: ".$propertyData['bathrooms'].", Average rent: $".number_format($rentFromApi,2),
                         "property_price" => number_format($property_price),
@@ -484,6 +492,7 @@ class PropertyController extends Controller{
                         "city" => $propertyData['city'],
                         "state" => $propertyData['state'],
                         "average_rent" => "$".number_format($rentFromApi,2),
+                        "principal_and_interest" => "$".number_format($principal_and_interest,2),
                         "downpayment_percent" => $downpayment_percent,
                         "downpayment" => "$".number_format($downpayment_payment,2),
                         "mortgage" => "$".number_format($mortgage,2),
@@ -504,31 +513,31 @@ class PropertyController extends Controller{
                         "maintenance" => "$".number_format($maintenance,2),
                         "total_monthly_cost"  => "$".number_format($totalMonthlyCost,2),
                         "total_yearly_cost"  => "$".number_format($totalYearlyCost,2),
-                        "user_current_plan_name"  => $propertyData['user_current_plan_name']
+                        "user_current_plan_name"  => $userSubData->plan_name,
+                        "highest_rent" => '',
+                        "monthly_net_operator"  => '',
+                        "yearly_net_operator"  => '',
+                        "cap_rate"  => '',
+                        "total_cash_flow_monthly"  => '',
+                        "total_cash_flow_yearly"  => '',
+                        "cash_on_cash_return"  => ''
                     ];
                     
-
-                            
-            $advanceData = [
-                        "highest_rent" => "$".number_format($highestRent,2),
-                        "principal_and_interest" => "$".number_format($principal_and_interest,2),
-                        "monthly_net_operator"  => "$".number_format($monthlyNetOperator,2),
-                        "yearly_net_operator"  => "$".number_format($yearlyNetOperator,2),
-                        "cap_rate"  => $cap_rate,
-                        "total_cash_flow_monthly"  => "$".number_format($total_cash_flow_monthly,2),
-                        "total_cash_flow_yearly"  => "$".number_format($total_cash_flow_yearly,2),
-                        "cash_on_cash_return"  => number_format($cash_on_cash_return,2)
-                        ];
-
-
-            if($propertyData['user_current_plan_name'] == "basic"){
-                $dataToSend = $basicData;
-            }else if($propertyData['user_current_plan_name'] == "standard" || $propertyData['user_current_plan_name'] == "premium"){
-                $dataToSend = $basicData + $advanceData;
+                    
+            if($userSubData->plan_name != "basic"){
+                $basicData["highest_rent"] = $highestRent != '' ? "$".number_format($highestRent,2) : '';
+                $basicData["monthly_net_operator"]  = $monthlyNetOperator != '' ? "$".number_format($monthlyNetOperator,2) : '';
+                $basicData["yearly_net_operator"]  = $yearlyNetOperator != '' ? "$".number_format($yearlyNetOperator,2) : '';
+                $basicData["cap_rate"]  = $cap_rate != '' ? $cap_rate : '';
+                $basicData["total_cash_flow_monthly"]  = $total_cash_flow_monthly != '' ? "$".number_format($total_cash_flow_monthly,2) : '';
+                $basicData["total_cash_flow_yearly"]  = $total_cash_flow_yearly != '' ? "$".number_format($total_cash_flow_yearly,2) : '';
+                $basicData["cash_on_cash_return"]  = $cash_on_cash_return != '' ? number_format($cash_on_cash_return,2) : '';
             }
+
+            $dataToSend = $basicData;
                             
             $dataToSend['last_id'] = $request->property_id;
-
+            
             return response()->json([
                             'status' => 'success',
                             'message' => '',
