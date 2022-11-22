@@ -553,6 +553,8 @@ class PropertyController extends Controller{
                         "vacancy" => "$".number_format($vacancy,2),
                         "maintenance_percent" => $propertyData['maintenance_percent'],
                         "maintenance" => "$".number_format($maintenance,2),
+                        "management_percent" => $propertyData['management_percent'],
+                        "management" => "$".number_format($management,2),
                         "total_monthly_cost"  => "$".number_format($totalMonthlyCost,2),
                         "total_yearly_cost"  => "$".number_format($totalYearlyCost,2),
                         "user_current_plan_name"  => $userSubData->plan_name,
