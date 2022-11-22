@@ -153,7 +153,7 @@ class PropertyController extends Controller{
 
 
                                 $estimate_cost_of_repair = (isset($request->estimate_cost_of_repair) && $request->estimate_cost_of_repair != '') ? $request->estimate_cost_of_repair : 0; // from extnsn
-                                $total_capital_needed = $downpayment_payment + $closing_cost_amount;
+                                $total_capital_needed = $downpayment_payment + $closing_cost_amount + $estimate_cost_of_repair;
 
                                 $loan_term_years = $request->loan_term_years ?? 30; // from extnsn
                                 $interest_rate = $request->interest_rate; // from extnsn
@@ -203,7 +203,7 @@ class PropertyController extends Controller{
                                 $total_cash_flow_monthly = $monthlyNetOperator - $principal_and_interest;
                                 $total_cash_flow_yearly = $total_cash_flow_monthly * 12;
 
-                                $cash_on_cash_return = number_format($total_cash_flow_yearly / $downpayment_payment,2);
+                                $cash_on_cash_return = number_format($total_cash_flow_yearly / $total_capital_needed,2);
 
                                 RealtorSubscription::where('user_id',$request->user_id)->update(['used_click' => ($subscriptions->used_click + 1)]);
                                 
@@ -471,7 +471,7 @@ class PropertyController extends Controller{
 
 
             $estimate_cost_of_repair = str_ireplace(array('$',','), '', $propertyData['estimate_costofrepair']);
-            $total_capital_needed = $downpayment_payment + $closing_cost_amount;
+            $total_capital_needed = $downpayment_payment + $closing_cost_amount + $estimate_cost_of_repair;
 
             $loan_term_years = str_ireplace(' Years', '', $propertyData['loanterm']);
             $interest_rate = str_ireplace('%', '', $propertyData['interestrate']);
@@ -522,7 +522,7 @@ class PropertyController extends Controller{
             $total_cash_flow_monthly = $monthlyNetOperator - $principal_and_interest;
             $total_cash_flow_yearly = $total_cash_flow_monthly * 12;
 
-            $cash_on_cash_return = number_format($total_cash_flow_yearly / $downpayment_payment,2);
+            $cash_on_cash_return = number_format($total_cash_flow_yearly / $total_capital_needed,2);
 
             
             $basicData = [
