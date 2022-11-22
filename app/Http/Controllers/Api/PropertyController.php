@@ -73,12 +73,16 @@ class PropertyController extends Controller{
                 throw new Exception("Please enter valid closing cost rate.");
             }
 
-            if (!isset($request->vacancy) || $request->vacancy == '' || $request->vacancy <= 0 || $request->vacancy > 100) {
-                throw new Exception("Please enter valid vacancy rate.");
+            if (!isset($request->vacancy) || $request->vacancy == '' || $request->vacancy < 0 || $request->vacancy > 100) {
+                throw new Exception("Please enter valid vacancy rate, or put 0.");
             }
 
-            if (!isset($request->maintenance) || $request->maintenance == '' || $request->maintenance <= 0 || $request->maintenance > 100) {
-                throw new Exception("Please enter valid maintenance rate.");
+            if (!isset($request->maintenance) || $request->maintenance == '' || $request->maintenance < 0 || $request->maintenance > 100) {
+                throw new Exception("Please enter valid maintenance rate, or put 0.");
+            }
+
+            if (!isset($request->management) || $request->management == '' || $request->management < 0 || $request->management > 100) {
+                throw new Exception("Please enter valid management rate, or put 0.");
             }
 
             //check user exist or not
@@ -169,10 +173,26 @@ class PropertyController extends Controller{
                                 $taxes = (isset($request->taxes) && $request->taxes != '') ? $request->taxes : 0;
                                 $insurance = (isset($request->insurance) && $request->insurance != '') ? $request->insurance : 0;
 
-                                $vacancy = ($gross_monthly_income * $request->vacancy) / 100;   
-                                $maintenance = ($gross_monthly_income * $request->maintenance) / 100;
+                                if($request->vacancy == 0){
+                                    $vacancy = 0;
+                                }else{
+                                    $vacancy = ($gross_monthly_income * $request->vacancy) / 100;
+                                }
 
-                                $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance;
+                                if($request->maintenance == 0){
+                                    $maintenance = 0;
+                                }else{
+                                    $maintenance = ($gross_monthly_income * $request->maintenance) / 100;
+                                }
+
+                                if($request->management == 0){
+                                    $management = 0;
+                                }else{
+                                    $management = ($gross_monthly_income * $request->management) / 100;
+                                }
+                                   
+
+                                $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance + $management;
                                 $totalYearlyCost = $totalMonthlyCost * 12;
 
                                 $monthlyNetOperator = $gross_monthly_income - $totalMonthlyCost;
@@ -184,7 +204,6 @@ class PropertyController extends Controller{
                                 $total_cash_flow_yearly = $total_cash_flow_monthly * 12;
 
                                 $cash_on_cash_return = number_format($total_cash_flow_yearly / $downpayment_payment,2);
-
 
                                 RealtorSubscription::where('user_id',$request->user_id)->update(['used_click' => ($subscriptions->used_click + 1)]);
                                 
@@ -220,6 +239,8 @@ class PropertyController extends Controller{
                                             "vacancy" => "$".number_format($vacancy,2),
                                             "maintenance_percent" => $request->maintenance,
                                             "maintenance" => "$".number_format($maintenance,2),
+                                            "management_percent" => $request->management,
+                                            "management" => "$".number_format($management,2),
                                             "total_monthly_cost"  => "$".number_format($totalMonthlyCost,2),
                                             "total_yearly_cost"  => "$".number_format($totalYearlyCost,2),
                                             "user_current_plan_name"  => $subscriptions->plan_name,
@@ -229,17 +250,21 @@ class PropertyController extends Controller{
                                             "cap_rate"  => '',
                                             "total_cash_flow_monthly"  => '',
                                             "total_cash_flow_yearly"  => '',
-                                            "cash_on_cash_return"  => ''
+                                            "cash_on_cash_return"  => '',
+                                            "extra_bedrooms"  => '',
+                                            "extra_bathrooms"  => ''
                                         ];
 
                                 if($subscriptions->plan_name != "basic"){
                                     $basicData["highest_rent"] = "$".number_format($highestRent,2);
-                                    $basicData["monthly_net_operator"]  = "$".number_format($monthlyNetOperator,2);
-                                    $basicData["yearly_net_operator"]  = "$".number_format($yearlyNetOperator,2);
-                                    $basicData["cap_rate"]  = $cap_rate;
-                                    $basicData["total_cash_flow_monthly"]  = "$".number_format($total_cash_flow_monthly,2);
-                                    $basicData["total_cash_flow_yearly"]  = "$".number_format($total_cash_flow_yearly,2);
-                                    $basicData["cash_on_cash_return"]  = number_format($cash_on_cash_return,2);
+                                    $basicData["monthly_net_operator"] = "$".number_format($monthlyNetOperator,2);
+                                    $basicData["yearly_net_operator"] = "$".number_format($yearlyNetOperator,2);
+                                    $basicData["cap_rate"] = $cap_rate;
+                                    $basicData["total_cash_flow_monthly"] = "$".number_format($total_cash_flow_monthly,2);
+                                    $basicData["total_cash_flow_yearly"] = "$".number_format($total_cash_flow_yearly,2);
+                                    $basicData["cash_on_cash_return"] = number_format($cash_on_cash_return,2);
+                                    $basicData["extra_bedrooms"] = isset($_POST['extra_bedrooms']) && !empty($_POST['extra_bedrooms']) ? $_POST['extra_bedrooms'] : [];
+                                    $basicData["extra_bathrooms"] = isset($_POST['extra_bathrooms']) && !empty($_POST['extra_bathrooms']) ? $_POST['extra_bathrooms'] : [];
                                 }
 
                                 $dataToSend = $basicData;
@@ -466,10 +491,27 @@ class PropertyController extends Controller{
             $taxes = str_ireplace(array('$',','), '', $propertyData['taxes']);
             $insurance = str_ireplace(array('$',','), '', $propertyData['insurance']);
 
-            $vacancy = ($gross_monthly_income * $propertyData['vacancy_percent']) / 100;   
-            $maintenance = ($gross_monthly_income * $propertyData['maintenance_percent']) / 100;
 
-            $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance;
+            if($propertyData['vacancy_percent'] == 0){
+                $vacancy = 0;   
+            }else{
+                $vacancy = ($gross_monthly_income * $propertyData['vacancy_percent']) / 100;   
+
+            }
+
+            if($propertyData['maintenance_percent'] == 0){
+                $maintenance = 0;   
+            }else{
+                $maintenance = ($gross_monthly_income * $propertyData['maintenance_percent']) / 100;
+            }
+
+            if($propertyData['management_percent'] == 0){
+                $management = 0;   
+            }else{
+                $management = ($gross_monthly_income * $propertyData['management_percent']) / 100;
+            }
+
+            $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance + $management;
             $totalYearlyCost = $totalMonthlyCost * 12;
 
             $monthlyNetOperator = $gross_monthly_income - $totalMonthlyCost;
@@ -520,7 +562,9 @@ class PropertyController extends Controller{
                         "cap_rate"  => '',
                         "total_cash_flow_monthly"  => '',
                         "total_cash_flow_yearly"  => '',
-                        "cash_on_cash_return"  => ''
+                        "cash_on_cash_return"  => '',
+                        "extra_bedrooms"  => '',
+                        "extra_bathrooms"  => ''
                     ];
                     
                     
@@ -532,6 +576,8 @@ class PropertyController extends Controller{
                 $basicData["total_cash_flow_monthly"]  = $total_cash_flow_monthly != '' ? "$".number_format($total_cash_flow_monthly,2) : '';
                 $basicData["total_cash_flow_yearly"]  = $total_cash_flow_yearly != '' ? "$".number_format($total_cash_flow_yearly,2) : '';
                 $basicData["cash_on_cash_return"]  = $cash_on_cash_return != '' ? number_format($cash_on_cash_return,2) : '';
+                $basicData["extra_bedrooms"] = isset($propertyData['extra_bedrooms']) && !empty($propertyData['extra_bedrooms']) ? $propertyData['extra_bedrooms'] : [];
+                $basicData["extra_bathrooms"] = isset($propertyData['extra_bathrooms']) && !empty($propertyData['extra_bathrooms']) ? $propertyData['extra_bathrooms'] : [];
             }
 
             $dataToSend = $basicData;

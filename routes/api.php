@@ -31,3 +31,4 @@ Route::get('/getsubscription-details/{id}', [PropertyController::class, 'getSubs
 Route::get('/getproperty-history/{id}', [PropertyController::class, 'getPropertyHistory'])->name('getproperty-history');
 Route::post('/cancel-subscription', [PropertyController::class, 'cancelSubscription'])->name('cancel-subscription');
 Route::post('/property-regenerate-details', [PropertyController::class, 'propertyRegenerateDetails'])->name('property-regenerate-details');
+Route::get('/user-detail/{id}', [UserAuthController::class, 'userDetail']);

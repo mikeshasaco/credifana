@@ -105,4 +105,25 @@ class UserAuthController extends Controller
 
         }
     }
+
+    public function userDetail(Request $request){
+        try {
+            if($request->id == ''){
+                throw new Exception("user not exist.");
+            }
+            $userSubs = RealtorSubscription::where('user_id',$request->id)->first();
+            if($userSubs == null){
+                throw new Exception("user not found.");
+            }
+            return response()->json([
+                'status' => 'success',
+                'data' => $userSubs->toArray()
+            ]);
+        } catch (Exception $e) {
+           return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
+        }
+    }
 }
