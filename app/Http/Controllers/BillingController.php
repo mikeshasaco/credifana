@@ -8,6 +8,8 @@ use App\Models\RealtorSubscription;
 use App\Models\RealtorPaymentHistory;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Exception;
+use App\Mail\SubscriptionSuccess;
+use Illuminate\Support\Facades\Mail;
 
 class BillingController extends Controller{
     
@@ -127,14 +129,12 @@ class BillingController extends Controller{
                                         ];
 
                 RealtorSubscription::where('user_id',$user->id)->update($subscriptionSaveData);
+                
+                $username = $user->fname .' '. $user->lname;
+                $plan_type = $plan_name;
+
+                Mail::to($email)->send(new SubscriptionSuccess(['username' => $username, 'plan_type' => $plan_type]));
                     
-                                
-                // $payment_history_data = [
-                //                     'user_id' => $user->id,
-                //                     'subscription_id' => $subscription_id,
-                //                     'amount' => $amount
-                //                 ];
-                // RealtorPaymentHistory::insert($payment_history_data);
             }
 
 
@@ -211,7 +211,7 @@ class BillingController extends Controller{
                     );
                     
                     if($existingSubscription && $existingSubscription->status == 'active'){
-                        // cancel existing subscriptions
+                        //  existing subscriptions
                         $subscription = $stripe->subscriptions->cancel(
                                             $detail['subscription_id'],
                                             []

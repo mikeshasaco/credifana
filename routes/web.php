@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Api\UserAuthController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
@@ -20,6 +21,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/formHandler', [FormController::class, 'index'])->name('form');
+
+Route::get('/forgot-password', function(){
+    return view('pages.forgot-password');
+})->name('forgot-password');
+
+Route::get('/subscription-cancel', function(){
+    return view('mail.subscriptioncancel');
+});
+Route::get('/subscription-success', function(){
+    return view('mail.subscriptionsuccess');
+});
+
+Route::post('/forgot-password', [UserAuthController::class, 'forgot_password'])->name('forgot_password');
+
+Route::get('/reset-password', [UserAuthController::class, 'reset_password'])->name('reset-password');
+Route::post('/update-password', [UserAuthController::class, 'update_password'])->name('update-password');
 
 /**
  * Billing and Subscriptions

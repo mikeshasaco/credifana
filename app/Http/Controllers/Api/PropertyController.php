@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SubscriptionCancel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Models\RealtorSubscription;
 use App\Models\RealtorPropertyHistory;
@@ -251,8 +253,8 @@ class PropertyController extends Controller{
                                             "total_cash_flow_monthly"  => '',
                                             "total_cash_flow_yearly"  => '',
                                             "cash_on_cash_return"  => '',
-                                            "extra_bedrooms"  => '',
-                                            "extra_bathrooms"  => ''
+                                            "extra_bathrooms"  => isset($_POST['extra_bathrooms']) && !empty($_POST['extra_bathrooms']) ? $_POST['extra_bathrooms'] : [],
+                                            "extra_bedrooms"  => isset($_POST['extra_bedrooms']) && !empty($_POST['extra_bedrooms']) ? $_POST['extra_bedrooms'] : []
                                         ];
 
                                 if($subscriptions->plan_name != "basic"){
@@ -263,8 +265,6 @@ class PropertyController extends Controller{
                                     $basicData["total_cash_flow_monthly"] = "$".number_format($total_cash_flow_monthly,2);
                                     $basicData["total_cash_flow_yearly"] = "$".number_format($total_cash_flow_yearly,2);
                                     $basicData["cash_on_cash_return"] = number_format($cash_on_cash_return,2);
-                                    $basicData["extra_bedrooms"] = isset($_POST['extra_bedrooms']) && !empty($_POST['extra_bedrooms']) ? $_POST['extra_bedrooms'] : [];
-                                    $basicData["extra_bathrooms"] = isset($_POST['extra_bathrooms']) && !empty($_POST['extra_bathrooms']) ? $_POST['extra_bathrooms'] : [];
                                 }
 
                                 $dataToSend = $basicData;
@@ -356,12 +356,12 @@ class PropertyController extends Controller{
             }
 
             //check user exist or not
-            $user = User::where('id',$request->id)->first();
+            $user = User::where('id', $request->id)->first();
             if($user == null){
                 throw new Exception("user not found.");
             }
-
             $userSubData = RealtorSubscription::where('user_id',$request->id)->first();
+
             if($userSubData != null){
 
                 if($userSubData->subscription_id != ''){
@@ -375,6 +375,9 @@ class PropertyController extends Controller{
                         );
                 }
                 $result = $userSubData->update(['is_cancelled' => 1, 'subscription_id' => null]);
+                $username = $user->fname .' '. $user->lname;
+                Mail::to($user->email)->send(new SubscriptionCancel(['username' => $username]));
+
             }
             return response()->json([
                 'status' => 'success',
@@ -565,8 +568,8 @@ class PropertyController extends Controller{
                         "total_cash_flow_monthly"  => '',
                         "total_cash_flow_yearly"  => '',
                         "cash_on_cash_return"  => '',
-                        "extra_bedrooms"  => '',
-                        "extra_bathrooms"  => ''
+                        "extra_bedrooms" => isset($propertyData['extra_bedrooms']) && !empty($propertyData['extra_bedrooms']) ? $propertyData['extra_bedrooms'] : [],
+                        "extra_bathrooms" => isset($propertyData['extra_bathrooms']) && !empty($propertyData['extra_bathrooms']) ? $propertyData['extra_bathrooms'] : []
                     ];
                     
                     
@@ -578,8 +581,6 @@ class PropertyController extends Controller{
                 $basicData["total_cash_flow_monthly"]  = $total_cash_flow_monthly != '' ? "$".number_format($total_cash_flow_monthly,2) : '';
                 $basicData["total_cash_flow_yearly"]  = $total_cash_flow_yearly != '' ? "$".number_format($total_cash_flow_yearly,2) : '';
                 $basicData["cash_on_cash_return"]  = $cash_on_cash_return != '' ? number_format($cash_on_cash_return,2) : '';
-                $basicData["extra_bedrooms"] = isset($propertyData['extra_bedrooms']) && !empty($propertyData['extra_bedrooms']) ? $propertyData['extra_bedrooms'] : [];
-                $basicData["extra_bathrooms"] = isset($propertyData['extra_bathrooms']) && !empty($propertyData['extra_bathrooms']) ? $propertyData['extra_bathrooms'] : [];
             }
 
             $dataToSend = $basicData;
