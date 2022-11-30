@@ -23,11 +23,11 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-    <!-- <meta name="description" content="Automation Tool for Real Estate Analysis and property investments, to provide real-time metrics for properties gross revenue and net profit."> -->
+    <meta name="description" content="Automation Tool for Real Estate Analysis and property investments, to provide real-time metrics for properties gross revenue and net profit.">
     <link rel="stylesheet" href="{{ asset('css/lib/bootstrap.min.css') }}" />
     @yield('styles')
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <title>Credifana | Real Estate Automation Tool for Property Investments & Analysis</title>
 </head>
 <body>
     <div class="body-wrapper">

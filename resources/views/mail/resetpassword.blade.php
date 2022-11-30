@@ -167,7 +167,7 @@ p{
                 <tr>
                     <td colspan="2">
                         <div class="button-container">
-                            <a href="{{ route('reset-password') }}?email={{ encrypt($email) }}" class="reset_button">Reset Password</a>
+                            <a href="{{ route('reset-password') }}?token={{ encrypt($email) }}" class="reset_button">Reset Password</a>
                         </div>
                     </td>
                 </tr>

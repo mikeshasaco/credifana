@@ -137,9 +137,9 @@ class UserAuthController extends Controller
     public function reset_password(Request $request)
     { 
         try {
-            if ($request->isMethod('get') && ( $request->input('email') != null || $request->input('email') != '' )) {
-                $email = $request->input('email');
-                $email = decrypt($email);
+            if ($request->isMethod('get') && ( $request->input('token') != null || $request->input('token') != '' )) {
+                $token = $request->input('token');
+                $email = decrypt($token);
 
                 $user = User::where('email', $email)->first();
 
