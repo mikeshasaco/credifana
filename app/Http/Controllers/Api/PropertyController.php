@@ -112,113 +112,127 @@ class PropertyController extends Controller{
                 $ExpireDate = date('Y-m-d',strtotime($subscriptions->plan_end));
                 if($ExpireDate >= $currentDate){
                     if($subscriptions->used_click < $subscriptions->total_click){
+                        $dataToSend = [];
+                        $final_bed_bath = [$request->bedrooms.'_'.$request->bathrooms];
 
-                        // Rapid API Call to get Rent on specific Area
-                        $curl = curl_init();
-                        curl_setopt_array($curl, [
-                            CURLOPT_URL => "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=".$request->city."&state=".$request->state."&bedrooms=".$request->bedrooms."&bathrooms=".$request->bathrooms,
-                            CURLOPT_RETURNTRANSFER => true,
-                            CURLOPT_FOLLOWLOCATION => true,
-                            CURLOPT_ENCODING => "",
-                            CURLOPT_MAXREDIRS => 10,
-                            CURLOPT_TIMEOUT => 30,
-                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                            CURLOPT_CUSTOMREQUEST => "GET",
-                            CURLOPT_HTTPHEADER => [
-                                "X-RapidAPI-Host: ".env("X_RAPIDAPI_HOST"),
-                                "X-RapidAPI-Key: ".env("X_RAPIDAPI_KEY")
-                            ],
-                        ]);
-                        $response = curl_exec($curl);
-                        $reserr = $response;
-                        $err = curl_error($curl);
-                        $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-                        curl_close($curl);
-                        if ($err) {
-                            throw new Exception($err);
-                        } else {
-                            $response = json_decode($response,true);
-                            if(isset($response) && count($response) > 0){
-                                $rentFromApi = array_sum(array_column($response,'price'))/count($response);
-                                $highestRent = max(array_column($response,'price'));
+                        if (isset($request->extra_bedrooms)) {
+                            for ($i=0; $i < count($request->extra_bedrooms); $i++) {
+                                array_push($final_bed_bath,$request->extra_bedrooms[$i].'_'.$request->extra_bathrooms[$i]);
+                            }
+                        }
+
+                        foreach ($final_bed_bath as $key => $bedbath) {
+                            if (!(key_exists($bedbath, $dataToSend))) {
+                                // Rapid API Call to get Rent on specific Area
+                                $bed = explode('_', $bedbath)[0];
+                                $bath = explode('_', $bedbath)[1];
                                 
-                                $property_price = $request->property_price; // from extnsn
-                                $property_image = $request->property_image; // from extnsn
-                                $property_name = $request->property_name; // from extnsn
+                                $curl = curl_init();
+                                curl_setopt_array($curl, [
+                                    CURLOPT_URL => "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=".$request->city."&state=".$request->state."&bedrooms=".$bed."&bathrooms=".$bath,
+                                    CURLOPT_RETURNTRANSFER => true,
+                                    CURLOPT_FOLLOWLOCATION => true,
+                                    CURLOPT_ENCODING => "",
+                                    CURLOPT_MAXREDIRS => 10,
+                                    CURLOPT_TIMEOUT => 30,
+                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                                    CURLOPT_CUSTOMREQUEST => "GET",
+                                    CURLOPT_HTTPHEADER => [
+                                        "X-RapidAPI-Host: ".env("X_RAPIDAPI_HOST"),
+                                        "X-RapidAPI-Key: ".env("X_RAPIDAPI_KEY")
+                                    ],
+                                ]);
 
-                                $downpayment_percent = $request->downpayment_percent; // from extnsn
-                                $downpayment_payment = ($property_price * $downpayment_percent) / 100;
-                                $mortgage = $property_price - $downpayment_payment;
-                                                        
-                                $closing_cost_percent = $request->closing_cost_percent; // from extnsn
-                                $closing_cost_amount = ($property_price * $closing_cost_percent) / 100;
-
-
-                                $estimate_cost_of_repair = (isset($request->estimate_cost_of_repair) && $request->estimate_cost_of_repair != '') ? $request->estimate_cost_of_repair : 0; // from extnsn
-                                $total_capital_needed = $downpayment_payment + $closing_cost_amount + $estimate_cost_of_repair;
-
-                                $loan_term_years = $request->loan_term_years ?? 30; // from extnsn
-                                $interest_rate = $request->interest_rate; // from extnsn
-
-                                //calculate principal and interest
-                                $power = $loan_term_years * 12;
-                                $rateformula = pow((($interest_rate / 1200) + 1), $power);
-                                
-                                $principal_and_interest = floor(((($mortgage * ($interest_rate / 1200)) * $rateformula) / ($rateformula - 1)));
-                                
-                                //Unit for multi-family if another property type then default 1 unit and user can change it
-                                $unit = $request->unit;
-
-                                $gross_monthly_income = $rentFromApi * $unit;
-                                $gross_yearly_income = floor($gross_monthly_income * 12);
-
-                                $taxes = (isset($request->taxes) && $request->taxes != '') ? $request->taxes : 0;
-                                $insurance = (isset($request->insurance) && $request->insurance != '') ? $request->insurance : 0;
-
-                                if($request->vacancy == 0){
-                                    $vacancy = 0;
-                                }else{
-                                    $vacancy = ($gross_monthly_income * $request->vacancy) / 100;
-                                }
-
-                                if($request->maintenance == 0){
-                                    $maintenance = 0;
-                                }else{
-                                    $maintenance = ($gross_monthly_income * $request->maintenance) / 100;
-                                }
-
-                                if($request->management == 0){
-                                    $management = 0;
-                                }else{
-                                    $management = ($gross_monthly_income * $request->management) / 100;
-                                }
-                                   
-
-                                $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance + $management;
-                                $totalYearlyCost = $totalMonthlyCost * 12;
-
-                                $monthlyNetOperator = $gross_monthly_income - $totalMonthlyCost;
-                                $yearlyNetOperator = $monthlyNetOperator * 12;
-
-                                $cap_rate = number_format($yearlyNetOperator / $property_price,2);
-
-                                $total_cash_flow_monthly = $monthlyNetOperator - $principal_and_interest;
-                                $total_cash_flow_yearly = $total_cash_flow_monthly * 12;
-
-                                $cash_on_cash_return = number_format($total_cash_flow_yearly / $total_capital_needed,2);
-
-                                RealtorSubscription::where('user_id',$request->user_id)->update(['used_click' => ($subscriptions->used_click + 1)]);
-                                
-                                $basicData = [
-                                            "average_rent_formula" => count($response)." ".$request->property_type.", Bedroom: ".$request->bedrooms." and Bathroom: ".$request->bathrooms.", Average rent: $".number_format($rentFromApi,2),
+                                $response = curl_exec($curl);
+                                $reserr = $response;
+                                $err = curl_error($curl);
+                                $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+                                curl_close($curl);
+                                if ($err) {
+                                    throw new Exception($err);
+                                } else {
+                                    $response = json_decode($response,true);
+                                    if(isset($response) && count($response) > 0){
+                                        $rentFromApi = array_sum(array_column($response,'price'))/count($response);
+                                        $highestRent = max(array_column($response,'price'));
+                                        
+                                        $property_price = $request->property_price; // from extnsn
+                                        $property_image = $request->property_image; // from extnsn
+                                        $property_name = $request->property_name; // from extnsn
+        
+                                        $downpayment_percent = $request->downpayment_percent; // from extnsn
+                                        $downpayment_payment = ($property_price * $downpayment_percent) / 100;
+                                        $mortgage = $property_price - $downpayment_payment;
+                                                                
+                                        $closing_cost_percent = $request->closing_cost_percent; // from extnsn
+                                        $closing_cost_amount = ($property_price * $closing_cost_percent) / 100;
+        
+        
+                                        $estimate_cost_of_repair = (isset($request->estimate_cost_of_repair) && $request->estimate_cost_of_repair != '') ? $request->estimate_cost_of_repair : 0; // from extnsn
+                                        $total_capital_needed = $downpayment_payment + $closing_cost_amount + $estimate_cost_of_repair;
+        
+                                        $loan_term_years = $request->loan_term_years ?? 30; // from extnsn
+                                        $interest_rate = $request->interest_rate; // from extnsn
+        
+                                        //calculate principal and interest
+                                        $power = $loan_term_years * 12;
+                                        $rateformula = pow((($interest_rate / 1200) + 1), $power);
+                                        
+                                        $principal_and_interest = floor(((($mortgage * ($interest_rate / 1200)) * $rateformula) / ($rateformula - 1)));
+                                        
+                                        //Unit for multi-family if another property type then default 1 unit and user can change it
+                                        $unit = $request->unit;
+        
+                                        $gross_monthly_income = $rentFromApi * $unit;
+                                        $gross_yearly_income = floor($gross_monthly_income * 12);
+        
+                                        $taxes = (isset($request->taxes) && $request->taxes != '') ? $request->taxes : 0;
+                                        $insurance = (isset($request->insurance) && $request->insurance != '') ? $request->insurance : 0;
+        
+                                        if($request->vacancy == 0){
+                                            $vacancy = 0;
+                                        }else{
+                                            $vacancy = ($gross_monthly_income * $request->vacancy) / 100;
+                                        }
+        
+                                        if($request->maintenance == 0){
+                                            $maintenance = 0;
+                                        }else{
+                                            $maintenance = ($gross_monthly_income * $request->maintenance) / 100;
+                                        }
+        
+                                        if($request->management == 0){
+                                            $management = 0;
+                                        }else{
+                                            $management = ($gross_monthly_income * $request->management) / 100;
+                                        }
+                                           
+        
+                                        $totalMonthlyCost = $taxes + $insurance + $vacancy + $maintenance + $management;
+                                        $totalYearlyCost = $totalMonthlyCost * 12;
+        
+                                        $monthlyNetOperator = $gross_monthly_income - $totalMonthlyCost;
+                                        $yearlyNetOperator = $monthlyNetOperator * 12;
+        
+                                        $cap_rate = number_format($yearlyNetOperator / $property_price,2);
+        
+                                        $total_cash_flow_monthly = $monthlyNetOperator - $principal_and_interest;
+                                        $total_cash_flow_yearly = $total_cash_flow_monthly * 12;
+        
+                                        $cash_on_cash_return = number_format($total_cash_flow_yearly / $total_capital_needed,2);
+        
+                                        RealtorSubscription::where('user_id',$request->user_id)->update(['used_click' => ($subscriptions->used_click + 1)]);
+                                        
+                                        $basicData = [
+                                            "average_rent_formula" => count($response)." ".$request->property_type.", Bedroom: ".$bed." and Bathroom: ".$bath.", Average rent: $".number_format($rentFromApi,2),
                                             "property_price" => number_format($property_price),
                                             "property_image" => $property_image,
                                             "property_type" => $request->property_type,
                                             "property_name" => $property_name,
                                             "city" => $request->city,
                                             "state" => $request->state,
-                                            "bedrooms" => $request->bedrooms,
-                                            "bathrooms" => $request->bathrooms,
+                                            "bedrooms" => $bed,
+                                            "bathrooms" => $bath,
                                             "property_count" => count($response),
                                             "state" => $request->state,
                                             "average_rent" => "$".number_format($rentFromApi,2),
@@ -253,33 +267,35 @@ class PropertyController extends Controller{
                                             "total_cash_flow_monthly"  => '',
                                             "total_cash_flow_yearly"  => '',
                                             "cash_on_cash_return"  => '',
-                                            "extra_bathrooms"  => isset($_POST['extra_bathrooms']) && !empty($_POST['extra_bathrooms']) ? $_POST['extra_bathrooms'] : [],
-                                            "extra_bedrooms"  => isset($_POST['extra_bedrooms']) && !empty($_POST['extra_bedrooms']) ? $_POST['extra_bedrooms'] : []
+                                            "extra_bed_bath"  => $final_bed_bath
                                         ];
-
-                                if($subscriptions->plan_name != "basic"){
-                                    $basicData["highest_rent"] = "$".number_format($highestRent,2);
-                                    $basicData["monthly_net_operator"] = "$".number_format($monthlyNetOperator,2);
-                                    $basicData["yearly_net_operator"] = "$".number_format($yearlyNetOperator,2);
-                                    $basicData["cap_rate"] = $cap_rate;
-                                    $basicData["total_cash_flow_monthly"] = "$".number_format($total_cash_flow_monthly,2);
-                                    $basicData["total_cash_flow_yearly"] = "$".number_format($total_cash_flow_yearly,2);
-                                    $basicData["cash_on_cash_return"] = number_format($cash_on_cash_return,2);
+        
+                                        if($subscriptions->plan_name != "basic"){
+                                            $basicData["highest_rent"] = "$".number_format($highestRent,2);
+                                            $basicData["monthly_net_operator"] = "$".number_format($monthlyNetOperator,2);
+                                            $basicData["yearly_net_operator"] = "$".number_format($yearlyNetOperator,2);
+                                            $basicData["cap_rate"] = $cap_rate;
+                                            $basicData["total_cash_flow_monthly"] = "$".number_format($total_cash_flow_monthly,2);
+                                            $basicData["total_cash_flow_yearly"] = "$".number_format($total_cash_flow_yearly,2);
+                                            $basicData["cash_on_cash_return"] = number_format($cash_on_cash_return,2);
+                                        }
+        
+                                        $dataToSend[$bedbath] = $basicData;
+                                    }else{
+                                        throw new Exception("Properties does not found for specific city and state.");
+                                    }
                                 }
-
-                                $dataToSend = $basicData;
-                                                
-                                $dataToSend['last_id'] = RealtorPropertyHistory::insertGetId(["user_id" => $request->user_id, "pro_detail" => json_encode($dataToSend)]);
-                                
-                                return response()->json([
-                                                'status' => 'success',
-                                                'message' => '',
-                                                'data' => $dataToSend
-                                            ], 200);
-                            }else{
-                                throw new Exception("Properties does not found for specific city and state.");
                             }
                         }
+
+                        $dataToSend['last_id'] = RealtorPropertyHistory::insertGetId(["user_id" => $request->user_id, "pro_detail" => json_encode($dataToSend)]);
+                                    
+                        return response()->json([
+                            'status' => 'success',
+                            'message' => '',
+                            'data' => $dataToSend
+                        ], 200);
+
                     }else{
                         throw new Exception("You have reached your maximum limit. please upgrade your plan on credifana. <a href='".route('pricing')."?token=".encrypt($user->email)."' target='_blank'>Click Here</a>.");
                     }
@@ -290,12 +306,10 @@ class PropertyController extends Controller{
             }
 
         } catch (Exception $e) {
-            
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()
             ]);
-
         }
     }
 
@@ -424,7 +438,6 @@ class PropertyController extends Controller{
 
     public function propertyRegenerateDetails(Request $request) {
         try {
-            
             if (!isset($request->property_id) || $request->property_id == '') {
                 throw new Exception("property not exist.");
             }
@@ -434,6 +447,11 @@ class PropertyController extends Controller{
             if (!isset($request->clicktype) || $request->clicktype == '') {
                 throw new Exception("soemthing went wrong, try again later.");
             }
+
+            if ($request->clicktype == 'changeProDetails' && (!(isset($request->active_unit)) || $request->active_unit == '')) {
+                throw new Exception("soemthing went wrong, try again later.");
+            }
+
             if ($request->clicktype == 'options_btn' && (!isset($request->rentValue) || $request->rentValue == '')) {
                 throw new Exception("soemthing went wrong with increase rent value.");
             }
@@ -448,7 +466,7 @@ class PropertyController extends Controller{
             }
 
             $propertyData = json_decode($propertyData->pro_detail,true);
-            // pre($propertyData);
+            $propertyData = $request->active_unit ? $propertyData[$request->active_unit] : $value = reset($propertyData);
 
             if($request->clicktype == 'options_btn'){
                 $rentFromApi = str_ireplace(array('$',','), '', $propertyData['average_rent']);
@@ -567,9 +585,7 @@ class PropertyController extends Controller{
                         "cap_rate"  => '',
                         "total_cash_flow_monthly"  => '',
                         "total_cash_flow_yearly"  => '',
-                        "cash_on_cash_return"  => '',
-                        "extra_bedrooms" => isset($propertyData['extra_bedrooms']) && !empty($propertyData['extra_bedrooms']) ? $propertyData['extra_bedrooms'] : [],
-                        "extra_bathrooms" => isset($propertyData['extra_bathrooms']) && !empty($propertyData['extra_bathrooms']) ? $propertyData['extra_bathrooms'] : []
+                        "cash_on_cash_return"  => ''
                     ];
                     
                     
@@ -588,10 +604,10 @@ class PropertyController extends Controller{
             $dataToSend['last_id'] = $request->property_id;
             
             return response()->json([
-                            'status' => 'success',
-                            'message' => '',
-                            'data' => $dataToSend
-                        ], 200);
+            'status' => 'success',
+            'message' => '',
+            'data' => $dataToSend
+        ], 200);
 
         } catch (Exception $e) {
             
