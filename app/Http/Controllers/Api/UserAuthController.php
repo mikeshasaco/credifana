@@ -25,6 +25,7 @@ class UserAuthController extends Controller
             try {
                 $validated = $login_data->validated();
                 $user_data = User::where('email', $validated['email'])->first();
+                $user_data->token = encrypt($user_data->email); 
 
                 if ($user_data && $user_data->count() > 0) {
                     if (Hash::check($validated['password'], $user_data->password)) {

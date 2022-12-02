@@ -365,6 +365,7 @@ class PropertyController extends Controller{
 
     public function cancelSubscription(Request $request) {
         try {
+
             if (!isset($request->id) || $request->id == '') {
                 throw new Exception("user not exist.");
             }
@@ -379,6 +380,7 @@ class PropertyController extends Controller{
             if($userSubData != null){
 
                 if($userSubData->subscription_id != ''){
+
                     require base_path().'/vendor/autoload.php';
                     $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
                  
