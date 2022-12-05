@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Rental Property Calculator And Analysis | Credifana </title>
-    <meta name="description" content="Credifana is a browser extension that intergrates with popular realtor websites to determine property returns with single click. ">
+    <meta name="description" content="Credifana is a rental property browser extension that intergrates with popular realtor websites that calculates investment returns for single and multi unit properties.">
     <meta property="og:title" content="Rental Property Calculator And Analysis | Credifana">
-    <meta property="og:description" content="Credifana is a browser extension that intergrates with popular realtor websites to determine property returns with single click.">
+    <meta property="og:description" content="Credifana is a rental property browser extension that intergrates with popular realtor websites that calculates investment returns for single and multi unit properties.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-icon-57x57.png') }}" />
@@ -23,11 +23,9 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Automation Tool for Real Estate Analysis and property investments, to provide real-time metrics for properties gross revenue and net profit.">
     <link rel="stylesheet" href="{{ asset('css/lib/bootstrap.min.css') }}" />
     @yield('styles')
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <title>Credifana | Real Estate Automation Tool for Property Investments & Analysis</title>
 </head>
 <body>
     <div class="body-wrapper">
