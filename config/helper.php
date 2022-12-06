@@ -25,7 +25,7 @@ function getTotalClicks($plan){
     }else if($plan == 'standard'){
         return 250;
     }else if($plan == 'premium'){
-        return 999999;
+        return 'unlimited clicks';
     }
 }
 

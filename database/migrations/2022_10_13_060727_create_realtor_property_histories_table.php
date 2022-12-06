@@ -16,6 +16,7 @@ class CreateRealtorPropertyHistoriesTable extends Migration
         Schema::create('realtor_property_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->string('plan_name')->nullable();
             $table->longText('pro_detail')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));

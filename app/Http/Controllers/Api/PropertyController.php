@@ -89,12 +89,14 @@ class PropertyController extends Controller{
 
             //check user exist or not
             $user = User::where('id',$request->user_id)->first();
+
             if($user == null){
                 throw new Exception("user not found.");
             }
 
             //check user subscribed or not
             $subscriptions = RealtorSubscription::where('user_id',$request->user_id)->first();
+
             if($subscriptions == null){
                 throw new Exception("please subscribed on credifana. <a href='".route('pricing')."?token=".encrypt($user->email)."' target='_blank'>Click Here</a>.");
             }else{
@@ -288,7 +290,7 @@ class PropertyController extends Controller{
                             }
                         }
 
-                        $dataToSend['last_id'] = RealtorPropertyHistory::insertGetId(["user_id" => $request->user_id, "pro_detail" => json_encode($dataToSend)]);
+                        $dataToSend['last_id'] = RealtorPropertyHistory::insertGetId(["user_id" => $request->user_id, 'plan_name' => $subscriptions->plan_name,  "pro_detail" => json_encode($dataToSend)]);
                                     
                         return response()->json([
                             'status' => 'success',
@@ -423,7 +425,7 @@ class PropertyController extends Controller{
                 throw new Exception("user not found.");
             }
 
-            $proHistoryData = RealtorPropertyHistory::where('user_id',$request->id)->orderBy('id','DESC')->get()->toArray();
+            $proHistoryData = RealtorPropertyHistory::where('user_id',$request->id)->where('plan_name', '!=', 'basic')->orderBy('id','DESC')->get()->toArray();
             return response()->json([
                 'status' => 'success',
                 'message' => '',
