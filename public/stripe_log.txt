@@ -1,6 +1,7 @@
-13-10-2022 13:26:28 ==> ERROR => No such subscription: 'sub_1LpVZ2EviaLTUto6IkwBaDuF'
-
-
-13-10-2022 13:28:57 ==> ERROR => No such subscription: 'sub_1LpYFZEviaLTUto6lHxJSuUj'
+07-12-2022 08:20:21 ==> ERROR => Expected response code 250 but got code "552", with message "552-5.7.0 This message was blocked because its content presents a potential
+552-5.7.0 security issue. Please visit
+552-5.7.0  https://support.google.com/mail/?p=BlockedMessage to review our
+552 5.7.0 message content and attachment content guidelines. x13-20020aa79acd000000b00577986d77c5sm27557pfp.152 - gsmtp
+"
 
 

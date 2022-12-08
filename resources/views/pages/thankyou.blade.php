@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="contact-hero-section">
+    <section class="contact-hero-section" style="height: calc(100vh - 161px);" >
         <div class="container-lg">
             <div class="hero-wrapper">
                 <div class="row">

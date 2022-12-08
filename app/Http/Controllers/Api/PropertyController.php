@@ -380,8 +380,7 @@ class PropertyController extends Controller{
             $userSubData = RealtorSubscription::where('user_id',$request->id)->first();
 
             if($userSubData != null){
-
-                if($userSubData->subscription_id != ''){
+                if($userSubData->subscription_id != '' && $userSubData->subscription_id){
 
                     require base_path().'/vendor/autoload.php';
                     $stripe = new \Stripe\StripeClient(env("STRIPE_SECRET_KEY"));
@@ -391,11 +390,13 @@ class PropertyController extends Controller{
                             $userSubData->subscription_id,
                             []
                         );
+                } else {
+                    $result = $userSubData->update(['is_cancelled' => 1, 'subscription_id' => null]);
+                    throw new Exception("Subscription does not exist", 1);
                 }
                 $result = $userSubData->update(['is_cancelled' => 1, 'subscription_id' => null]);
                 $username = $user->fname .' '. $user->lname;
                 Mail::to($user->email)->send(new SubscriptionCancel(['username' => $username]));
-
             }
             return response()->json([
                 'status' => 'success',
@@ -421,6 +422,7 @@ class PropertyController extends Controller{
             $user = User::join('realtor_subscriptions','users.id','=','realtor_subscriptions.user_id')
                         ->select('users.*','plan_name')
                         ->where('users.id',$request->id)->first();
+            
             if($user == null){
                 throw new Exception("user not found.");
             }
