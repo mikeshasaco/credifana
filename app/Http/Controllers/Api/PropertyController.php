@@ -131,7 +131,7 @@ class PropertyController extends Controller{
                                 
                                 $curl = curl_init();
                                 curl_setopt_array($curl, [
-                                    CURLOPT_URL => "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=".$request->city."&state=".$request->state."&bedrooms=".$bed."&bathrooms=".$bath,
+                                    CURLOPT_URL => "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=".$request->city."&state=".$request->state."&propertyType=".$request->property_type."&bedrooms=".$bed."&bathrooms=".$bath,
                                     CURLOPT_RETURNTRANSFER => true,
                                     CURLOPT_FOLLOWLOCATION => true,
                                     CURLOPT_ENCODING => "",
@@ -361,7 +361,7 @@ class PropertyController extends Controller{
             return response()->json([
                 'status' => 'error',
                 'message' => $e->getMessage()
-            ],400);
+            ],200);
         }
     }
 
