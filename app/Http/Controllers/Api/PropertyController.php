@@ -124,7 +124,7 @@ class PropertyController extends Controller{
                         }
 
                         foreach ($final_bed_bath as $key => $bedbath) {
-                            if (!(key_exists($bedbath, $dataToSend))) {
+                            if (!key_exists($bedbath, $dataToSend)) {
                                 // Rapid API Call to get Rent on specific Area
                                 $bed = explode('_', $bedbath)[0];
                                 $bath = explode('_', $bedbath)[1];
@@ -150,14 +150,16 @@ class PropertyController extends Controller{
                                 $err = curl_error($curl);
                                 $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
                                 curl_close($curl);
-                                if ($err) {
+                                if ($err || $http_status == 403) {
+                                    if($http_status == 403){
+                                        $err = 'Something went wrong, Please try again later.';
+                                    }
                                     throw new Exception($err);
                                 } else {
                                     $response = json_decode($response,true);
                                     if(isset($response) && count($response) > 0){
                                         $rentFromApi = array_sum(array_column($response,'price'))/count($response);
                                         $highestRent = max(array_column($response,'price'));
-                                        
                                         $property_price = $request->property_price; // from extnsn
                                         $property_image = $request->property_image; // from extnsn
                                         $property_name = $request->property_name; // from extnsn
