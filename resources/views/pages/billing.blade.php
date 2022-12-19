@@ -32,7 +32,7 @@
                                         <div class="w-100">
                                             <h1 class="card-title pricing-card-title">Free<small class="text-muted"></small></h1>
                                             <ul class="list-unstyled mt-3 mb-4 planPoints">
-                                            <li>15 requests</li>
+                                            <li>20 requests</li>
                                             <li>Gross yearly income</li>
                                             <li>Gross monthly income</li>
                                             </ul>
@@ -47,7 +47,7 @@
                                         <div class="w-100">
                                             <h1 class="card-title pricing-card-title">${{ env("STANDARD_PLAN_PRICE") }}<small class="text-muted">/ mo</small></h1>
                                             <ul class="list-unstyled mt-3 mb-4 planPoints">
-                                            <li>250 requests</li>
+                                            <li>200 requests</li>
                                             <li>Calculate monthly and yearly cash flow for muti-unit properties</li>
                                             <li>Rent data provided for property</li>
                                             <li>Total cash flow data month and yearly after property expenses</li>
@@ -71,7 +71,7 @@
                                         <div class="w-100">
                                             <h1 class="card-title pricing-card-title">${{ env("PREMIUM_PLAN_PRICE") }} <small class="text-muted">/ mo</small></h1>
                                             <ul class="list-unstyled mt-3 mb-4 planPoints">
-                                            <li>Unlimited requests</li>
+                                            <li>500 requests</li>
                                             <li>Calculate monthly and yearly cash flow for muti-unit properties</li>
                                             <li>Rent data provided for property</li>
                                             <li>Total cash flow data month and yearly after property expenses</li>
@@ -83,7 +83,7 @@
                                         <form action="{{ route('billing-checkout') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="email" value="{{ $email ?? '' }}">
-                                            <button class="btn btn-lg btn-block btn-primary" name="selectedPlan" value="{{ env("PREMIUM_PLAN_ID") }}">Get started</button>
+                                            <button class="btn btn-lg btn-block btn-primary" name="selectedPlan" value="{{ env("_PLAN_ID") }}">Get started</button>
                                         </form>
                                     </div>
                                 </div>

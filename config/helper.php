@@ -21,11 +21,11 @@ function plog($data){
 
 function getTotalClicks($plan){
     if($plan == 'basic'){
-        return 15;
+        return 20;
     }else if($plan == 'standard'){
-        return 250;
+        return 200;
     }else if($plan == 'premium'){
-        return 99999;
+        return 500;
     }
 }
 
