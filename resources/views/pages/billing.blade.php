@@ -83,7 +83,7 @@
                                         <form action="{{ route('billing-checkout') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="email" value="{{ $email ?? '' }}">
-                                            <button class="btn btn-lg btn-block btn-primary" name="selectedPlan" value="{{ env("_PLAN_ID") }}">Get started</button>
+                                            <button class="btn btn-lg btn-block btn-primary" name="selectedPlan" value="{{ env("PREMIUM_PLAN_ID") }}">Get started</button>
                                         </form>
                                     </div>
                                 </div>
