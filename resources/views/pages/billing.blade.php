@@ -48,9 +48,9 @@
                                             <h1 class="card-title pricing-card-title">${{ env("STANDARD_PLAN_PRICE") }}<small class="text-muted">/ mo</small></h1>
                                             <ul class="list-unstyled mt-3 mb-4 planPoints">
                                             <li>200 requests</li>
-                                            <li>Calculate monthly and yearly cash flow for muti-unit properties</li>
+                                            <li>Calculate monthly and yearly cash flow for multi-unit properties</li>
                                             <li>Rent data provided for property</li>
-                                            <li>Total cash flow data month and yearly after property expenses</li>
+                                            <li>Total cash flow data, month and yearly data after property expenses</li>
                                             <li>Monthly and Yearly net operator costs</li>
                                             <li>Principal and interest rate for property</li>
                                             <li>Capitalization Rate for property</li>

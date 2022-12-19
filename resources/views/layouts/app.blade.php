@@ -63,7 +63,7 @@
         <footer>
             <div class="container">
                 <div class="copyright">
-                    <p>&copy; Copyright 2021 Credifana. All rights reserved</p>
+                    <p>&copy; Copyright 2022 Credifana. All rights reserved</p>
                     <p><a href="{{ route('privacy-policy') }}">Privacy policy</a> | <a href="{{ route('terms-of-use') }}">Terms of use</a></p>
                 </div>
             </div>

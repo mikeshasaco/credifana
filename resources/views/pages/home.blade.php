@@ -55,7 +55,7 @@
         <div class="container-lg">
             <div class="process-wrapper">
                 <div class="heading">
-                    <h2>Credifana helps potential property buyers, learn the numbers before purchasing investment properties.</h2>
+                    <h2>Credifana helps potential property buyers learn the numbers before purchasing investment properties.</h2>
                 </div>
                 <div class="process-steps">
                     <div class="step">
@@ -75,7 +75,7 @@
                                             <p>Open the Credifana extension and click evaluate!</p>
                                             <p>Credifana will then automate</p> -->
 
-                                            <p>Credifana integrates with popular realtor websites that allow users to browse properties, analysis property metrics in real-time without having to change tabs.   </p>
+                                            <p>Credifana integrates with popular realtor websites by allowing users to browse properties and analyze property metrics in real-time without having to change tabs.   </p>
 
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                             <!-- <p>Average Rent - Credifana pulls rent analytics from all accross the country to give the most accurate rent price.   </p>
                                             <p>Gross Revenue - Credifana calulates properties expenses and maintenance fees to give the most accurate results when determining annual income a property can generate.   </p>
                                             <p>Net Revenue  - Credifana calulates properties revenue after expenses are paid for in any location to give accurate results.   </p> -->
-                                            <p>Credifana automation tool will determine property estimated gross revenue monthly/yearly, net operator cost for that individual property and many more to help with the property evaluation process. </p>
+                                            <p>Credifana automation tool will determine any property estimated gross revenue monthly/yearly, net operator cost and many more to help with the property evaluation process. </p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,10 +126,10 @@
                                 <div class="col-md-6 order-1 order-md-1">
                                     <div class="left-block">
                                         <div class="heading">
-                                            <h3>Keep Track of property History</h3>
+                                            <h3>Keep Track of Property History</h3>
                                         </div>
                                         <div class="content">
-                                            <p>Credifana saves a portifolo of every property search so keeping track of future investment is made easy.</p>
+                                            <p>Credifana saves a portfolio of every property that you search so that keeping track of future investment is made easy.</p>
                                                 
                                         </div>
                                     </div>
@@ -174,7 +174,7 @@
             <div class="repair-container">
                 <div class="content">
                     <p>
-                        if you interested in buying real estate, <br/> you need Credifana
+                        if you interested in buying real estate, <br/> you definitely need Credifana!
                     </p>
                 </div>
                 <div class="contact-btn">
