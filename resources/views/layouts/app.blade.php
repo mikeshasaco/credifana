@@ -77,7 +77,7 @@
                                 <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                             </li>
                             <li class="nav-item px-2 btn-item">
-                                <a class="nav-link btn" href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco">Download</a>
+                                <a class="nav-link btn" target="_blank" href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco">Download</a>
                             </li>
                         </ul>
                     </div>
