@@ -26,6 +26,35 @@
     <link rel="stylesheet" href="{{ asset('css/lib/bootstrap.min.css') }}" />
     @yield('styles')
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NVBPE6Y89E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NVBPE6Y89E');
+</script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '846486693215673');
+        fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=846486693215673&ev=PageView&noscript=1"
+        />
+    </noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
     <div class="body-wrapper">
@@ -48,7 +77,7 @@
                                 <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                             </li>
                             <li class="nav-item px-2 btn-item">
-                                <a class="nav-link btn" href="#">Download</a>
+                                <a class="nav-link btn" target="_blank" href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco">Download</a>
                             </li>
                         </ul>
                     </div>
@@ -63,7 +92,7 @@
         <footer>
             <div class="container">
                 <div class="copyright">
-                    <p>&copy; Copyright 2021 Credifana. All rights reserved</p>
+                    <p>&copy; Copyright 2022 Credifana. All rights reserved</p>
                     <p><a href="{{ route('privacy-policy') }}">Privacy policy</a> | <a href="{{ route('terms-of-use') }}">Terms of use</a></p>
                 </div>
             </div>
