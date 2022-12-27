@@ -23,4 +23,9 @@ $(document).ready(function () {
         $('#dial-code').val(selectedData.dialCode);
         $('#country-name').val(selectedData.name);
     }
+
+    $('.question').click(function (e) { 
+        e.preventDefault();
+        $(this).siblings('.answer').toggle();;
+    });
 });

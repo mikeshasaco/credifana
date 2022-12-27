@@ -28,6 +28,6 @@ class ContactEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Credifana')->markdown('mail.contact', $this->data);
+        return $this->subject('Credifana')->view('mail.contact', $this->data);
     }
 }

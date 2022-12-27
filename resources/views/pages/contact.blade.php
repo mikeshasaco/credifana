@@ -47,6 +47,8 @@
                                         <label for="user_email">Email Address</label>
                                         <div class="error-message"></div>
                                     </div>
+                                    
+                                    <?php /*
                                     <div class="form-group d-flex">
                                         <div class="country-code">
                                             <div class="form-group me-3 mb-0">
@@ -65,6 +67,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    */ ?>
+
                                     <div class="form-group mode-form-group mb-4">
                                         <textarea type="text" class="form-control h-auto" name="user_requirement"
                                             id="user_requirement" cols="30" rows="5" placeholder="Your requirements"></textarea>

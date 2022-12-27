@@ -390,6 +390,18 @@ section.process-section .process-wrapper .heading h2 {
 section.process-section .process-wrapper .heading h3 {
   color: #2e2e2e;
 }
+section.process-section .process-wrapper .video-container {
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 0px 20px #748eff;
+  display: inline-block;
+  margin-bottom: 45px;
+  width: 480px;
+}
+section.process-section .process-wrapper .video-container video {
+  max-width: 100%;
+  border-radius: 20px;
+}
 section.process-section .process-wrapper .content p {
   color: #2e2e2e;
 }
@@ -748,6 +760,250 @@ section.contact-hero-section .right-block .contact-form .captcha p {
   line-height: 20px;
   margin-bottom: 28px;
   color: #989898;
+}
+
+body .pricing-table-container {
+  padding: 0px 30px 70px 30px;
+}
+body .pricing-table-container .new_pricing_table_2020_12 {
+  background-color: white;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container {
+  border-radius: 5px;
+  border: 2px solid #b7b7b7;
+  overflow: hidden;
+  position: relative;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table {
+  margin: -1px 0 -1px -1px;
+  width: calc(100% + 2px);
+  overflow: hidden;
+  border-collapse: collapse;
+  font-size: 1em;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr.section_divider td {
+  font-weight: 700;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td {
+  padding: 15px;
+  text-align: center !important;
+  vertical-align: middle;
+  border: 1px solid #b7b7b7;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .api_quota span {
+  padding: 5px 15px;
+  box-shadow: 0px 0px 5px 0px #748eff;
+  border-radius: 5px;
+  background: #f1f1f1;
+  display: inline-block;
+  width: 60px;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td:first-child {
+  text-align: left !important;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td em {
+  border-bottom: 1px dashed #000;
+  font-style: normal;
+  cursor: pointer;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .all_plans p {
+  padding-top: 5px;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .all_plans p .general_check {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: green;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 700;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .all_plans p .after_check {
+  top: 1px;
+  position: relative;
+  padding-left: 8px;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header {
+  width: 22vw;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_name {
+  font-weight: 700;
+  font-size: 1.3em;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_price .the_price_container {
+  display: inline-block;
+  position: relative;
+  font-size: 2.5em;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_price .the_price_container .the_dollar_sign {
+  position: absolute;
+  left: -10px;
+  top: 8px;
+  font-size: 0.5em;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_price .price_per {
+  font-size: 0.8em;
+  margin-top: -10px;
+  opacity: 0.5;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_cta {
+  margin: 1em 0;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_cta .bigbutton.small_block {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  border-radius: 5px;
+  background: #748eff;
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_cta .bigbutton.small_block::after {
+  content: "";
+  width: 1em;
+  height: 1em;
+  margin: 0 0 0 0.2em;
+  top: 0.1em;
+  position: relative;
+  background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48cGF0aCBkPSJNOSAyTDkgMyAxMi4zIDMgNiA5LjMgNi43IDEwIDEzIDMuNyAxMyA3IDE0IDcgMTQgMlpNNCA0QzIuOSA0IDIgNC45IDIgNkwyIDEyQzIgMTMuMSAyLjkgMTQgNCAxNEwxMCAxNEMxMS4xIDE0IDEyIDEzLjEgMTIgMTJMMTIgNyAxMSA4IDExIDEyQzExIDEyLjYgMTAuNiAxMyAxMCAxM0w0IDEzQzMuNCAxMyAzIDEyLjYgMyAxMkwzIDZDMyA1LjQgMy40IDUgNCA1TDggNSA5IDRaIi8+PC9zdmc+) no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header .plan_cta .bigbutton.small_block:hover {
+  top: 4px;
+  left: 4px;
+  box-shadow: 1px 1px 0 #000 !important;
+  transition-property: box-shadow, top, left;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td span.general_check {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: green;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 700;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td span.general_check.false {
+  background-color: red;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .select {
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .select select {
+  border: 2px solid #000;
+  padding-right: 2.5em;
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  max-width: 100%;
+  outline: 0;
+  background-color: #fff;
+  border-radius: 4px;
+  color: #363636;
+  -webkit-appearance: none;
+  box-shadow: none;
+  height: 2.5em;
+  line-height: 1.5;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: calc(0.75em - 1px);
+  padding-top: calc(0.5em - 1px);
+  position: relative;
+  vertical-align: top;
+}
+body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .select::after {
+  border: 3px solid transparent;
+  border-radius: 2px;
+  border-right: 0;
+  border-top: 0;
+  content: " ";
+  display: block;
+  height: 0.625em;
+  margin-top: -0.4375em;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  width: 0.625em;
+  border-color: #748eff;
+  right: 1.125em;
+  z-index: 4;
+}
+body .faq-container .big_text {
+  text-align: center;
+}
+body .faq-container .big_text h2 {
+  font-size: 2.7em;
+  line-height: 1.1em;
+  font-weight: 800;
+  padding-bottom: 0.5em;
+  letter-spacing: -0.03em;
+}
+body .faq-container .big_text p {
+  padding-top: 0px;
+  font-size: 1.5em;
+}
+body .faq-container .big_text .cta .faq_container {
+  text-align: left;
+}
+body .faq-container .big_text .cta .faq_container .faq_section_title {
+  border-bottom: 1px solid #b7b7b7;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 12px 0;
+}
+body .faq-container .big_text .cta .faq_container .faq_item {
+  font-size: 1.2em;
+  border-bottom: 1px solid #b7b7b7;
+  padding: 12px 0;
+}
+body .faq-container .big_text .cta .faq_container .faq_item .question {
+  color: #007aff;
+  cursor: pointer;
+}
+body .faq-container .big_text .cta .faq_container .faq_item .answer {
+  display: none;
+  color: #2e2e2e;
+}
+body .faq-container .big_text .cta .faq_container .faq_item .answer a {
+  font-size: 14px;
+  color: #007aff;
+  text-decoration: none;
+}
+body .faq-container .big_text .cta .faq_container .faq_section_title {
+  border-bottom: 1px solid #b7b7b7;
+  font-size: 1.2em;
+  font-weight: 700;
+  padding: 12px 0;
+  margin-top: 2em;
 }
 
 section {

@@ -22,9 +22,9 @@ $(document).ready(function () {
               email: true,
               validEmail: true,
             },
-            user_phone: {
-              required: true,
-            },
+            // user_phone: {
+            //   required: true,
+            // },
             user_requirement: {
               required: true,
             },
@@ -35,9 +35,9 @@ $(document).ready(function () {
               required: "Please enter your Email Address.",
               email: "Not a valid EMAIL",
             },
-            user_phone: {
-              required: "Please enter your Phone number.",
-            },
+            // user_phone: {
+            //   required: "Please enter your Phone number.",
+            // },
             user_requirement: {
               required: "Please enter your requirement.",
             },
@@ -55,7 +55,7 @@ $(document).ready(function () {
               success: function (response) {
                 $("button[name=submit_contact_form]").attr("disabled", false);
                 $(".submit-loader").removeClass("d-inline-block").addClass("d-none");
-                response = JSON.parse(response);
+                // response = JSON.parse(response);
                 if (response.success) {
                   Swal.fire(
                     'Success!',

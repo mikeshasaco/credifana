@@ -243,9 +243,10 @@ CREDIFANA
                                     <th>Email</th>
                                 </tr>
                                 <tr class="content contain">
-                                    <td><?php echo $user_name ?? 'NaN'; ?></td>
+                                    <td><?php echo ucfirst($user_name) ?? 'NaN'; ?></td>
                                     <td style="word-break: break-all;"><?php echo $user_email ?? 'NaN'; ?></td>
                                 </tr>
+                                <?php /*
                                 <tr class="dummy-row">
                                     <td colspan="2"></td>
                                 </tr>
@@ -257,6 +258,7 @@ CREDIFANA
                                     <td><?php echo $user_phone ? '+'.$dial_code.' '.$user_phone : 'NaN'; ?> </td>
                                     <td><?php echo $country_name ?? 'NaN' ?></td>
                                 </tr>
+                                */ ?>
                                 <tr class="dummy-row">
                                     <td colspan="2"></td>
                                 </tr>
@@ -284,7 +286,7 @@ CREDIFANA
                 <tr>
                     <td class="footer">
                         <img src="{{ asset('images/logo.png') }}" alt="Credifana logo" width="30" height="30" />
-                        <span style="color:#2c2c2c;font-weight:bold;margin-top:8px;font-size:16px;">Credifana@2021</span>
+                        <span style="color:#2c2c2c;font-weight:bold;margin-top:8px;font-size:16px;">Credifana@2023</span>
                     </td>
                     <td style="font-size:15px; text-align:left">
                         <address>

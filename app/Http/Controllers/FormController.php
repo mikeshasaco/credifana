@@ -17,19 +17,18 @@ class FormController extends Controller
         //         'toast' => 'Google Captcha validation failed'
         //     ], 409);
         // }
-
         $validated = $request->validate([
             'user_email' => 'required|email:filter',
             'user_name' => 'required',
-            'user_phone' => 'required',
+            // 'user_phone' => 'required',
             'user_requirement' => 'required',
         ]);
 
-        $validated['country_name'] = $request->input('country-name');
-        $validated['dial_code'] = $request->input('dial-code');
+        // $validated['country_name'] = $request->input('country-name');
+        // $validated['dial_code'] = $request->input('dial-code');
 
         Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactEmail($validated));
-        Mail::to($validated['user_email'])->send(new ThankYouEmail());
+        Mail::to($validated['user_email'])->send(new ThankYouEmail($validated));
 
         return response()->json([
             'success'=> 'Form submited successfully'

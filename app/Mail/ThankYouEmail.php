@@ -16,9 +16,9 @@ class ThankYouEmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -28,6 +28,6 @@ class ThankYouEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Credifana')->view('mail.thankyou');
+        return $this->subject('Credifana')->view('mail.thankyou', $this->data);
     }
 }

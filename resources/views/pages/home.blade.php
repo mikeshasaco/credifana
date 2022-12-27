@@ -57,6 +57,9 @@
                 <div class="heading">
                     <h2>Credifana helps potential property buyers learn the numbers before purchasing investment properties.</h2>
                 </div>
+                <div class="video-container">
+                    <video src="{{ asset('video/intro.mp4') }}" controls></video>
+                </div>
                 <div class="process-steps">
                     <div class="step">
                         <div class="step-wrapper">

@@ -297,8 +297,8 @@ Thanks,<br>
                 <tr>
                     <th class="sub-heading" colspan="2">
                         <h3>
-                            We received your estimation enquiry. We will shortly connect with you over Email or Phone
-                            number that you provided.
+                            Hi, <?php echo ucfirst($user_name); ?>, <br/>
+                            We received your enquiry. We will shortly connect with you over Email that you provided.
                         </h3>
                     </th>
                 </tr>
@@ -308,7 +308,7 @@ Thanks,<br>
                 <tr>
                     <td class="footer">
                         <img src="{{ asset('images/logo.png') }}" alt="Credifana logo" width="30" height="30" />
-                        <span style="color:#000;font-weight:bold;margin-top:8px;font-size:16px;">Credifana@2021</span>
+                        <span style="color:#000;font-weight:bold;margin-top:8px;font-size:16px;">Credifana@2023</span>
                     </td>
                     <td style="font-size:15px;text-align:left">
                         <address style="color:#000">CREDIFANA</address>
