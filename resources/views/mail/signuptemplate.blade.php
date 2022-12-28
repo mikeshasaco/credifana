@@ -135,22 +135,44 @@
         <tbody>
             <tr>
                 <td>
-                    <p class="greetings">Hello, {{ $username }}</p>
+                    <p class="greetings">Welcome, {{ $username }}</p>
                     <span><?php echo date('jS F Y  h:i A') ?></span>
                 </td>
             </tr>
             <tr>
                 <td class="description">
-                    <p>Your subscription has been canceled.</p>
+                    <p>Thank you for downloading Credifana extension, you can now search and analyze properties within the extension. Learn market trends and real-time property metrics across the United States.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table class="plan-table">
+                        <thead>
+                            <tr>
+                                <th>Plans</th>
+                                <th>Total Request</th>
+                                <th>Start Date</th>
+                                <th>Renewal Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $plan_type }}</td>
+                                <td>{{ $total_click }}</td>
+                                <td>{{ $plan_start }}</td>
+                                <td>{{ $plan_end }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
             <tr class="social-container">
-                <td class="facebook-container">
+                <td class="facebook-container fb">
                     <a href="https://www.facebook.com/groups/1167762780759149" target="_blank" class="facebook social-btn">
                         <img src="https://credifana.com/images/facebook.png" alt="facebook"> Join our Facebook Community
                     </a>
                 </td>
-                <td class="youtube-container">
+                <td class="youtube-container yt">
                     <a href="https://www.youtube.com/channel/UCqDevzLF3mUkAt1t76EH1sQ" target="_blank" class="youtube social-btn">
                         <img src="https://credifana.com/images/youtube.png" alt="youtube"> Subscribe To Credifana
                     </a>

@@ -28,6 +28,6 @@ class SubscriptionCancel extends Mailable
      */
     public function build()
     {
-        return $this->subject('Credifana Cancel Subscription')->markdown('mail.subscriptioncancel', $this->data);
+        return $this->subject('Credifana Cancel Subscription')->view('mail.subscriptioncancel', $this->data);
     }
 }

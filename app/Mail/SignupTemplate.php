@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SubscriptionSuccess extends Mailable
+class SignupTemplate extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,7 +28,7 @@ class SubscriptionSuccess extends Mailable
      */
     public function build()
     {
-        return $this->subject('Credifana Subscription Started')->view('mail.subscriptionsuccess', $this->data);
+        return $this->subject('Credifana Subscription Started')->view('mail.signuptemplate', $this->data);
 
     }
 }

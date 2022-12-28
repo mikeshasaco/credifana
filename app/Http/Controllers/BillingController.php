@@ -132,8 +132,12 @@ class BillingController extends Controller{
                 
                 $username = $user->fname .' '. $user->lname;
                 $plan_type = $plan_name;
+                $total_click = $subscriptionSaveData['total_click'];
+                $plan_start = date('jS F Y', strtotime($subscriptionSaveData['plan_start']));
+                $plan_end = date('jS F Y', strtotime($subscriptionSaveData['plan_end']));
 
-                Mail::to($email)->send(new SubscriptionSuccess(['username' => $username, 'plan_type' => $plan_type]));
+
+                Mail::to($email)->send(new SubscriptionSuccess(['username' => $username, 'plan_type' => $plan_type, 'total_click' => $total_click, 'plan_start' => $plan_start, 'plan_end' => $plan_end]));
                     
             }
 

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\RealtorSubscription;
 use App\Mail\ResetPasswordEmail;
-use App\Mail\SubscriptionSuccess;
+use App\Mail\SignupTemplate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -97,8 +97,11 @@ class UserAuthController extends Controller
             RealtorSubscription::insert($subscriptionSaveData);
             $username = $user_data['fname'] .' '. $user_data['lname'];
             $plan_type = $subscriptionSaveData['plan_name'];
+            $total_click = $subscriptionSaveData['total_click'];
+            $plan_start = date('jS F Y', strtotime($subscriptionSaveData['plan_start']));
+            $plan_end = date('jS F Y', strtotime($subscriptionSaveData['plan_end']));
 
-            Mail::to($user_data['email'])->send(new SubscriptionSuccess(['username' => $username, 'plan_type' => $plan_type]));
+            Mail::to($user_data['email'])->send(new SignupTemplate(['username' => $username, 'plan_type' => $plan_type, 'total_click' => $total_click, 'plan_start' => $plan_start, 'plan_end' => $plan_end]));
             
             return response()->json([
                 'status' => 'success',
