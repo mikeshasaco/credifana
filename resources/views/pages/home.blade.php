@@ -53,7 +53,7 @@
 
     <section class="process-section">
         <div class="container-lg">
-            <div class="process-wrapper">
+            <div class="process-wrapper d-flex flex-column align-items-center">
                 <div class="heading">
                     <h2>Credifana helps potential property buyers learn the numbers before purchasing investment properties.</h2>
                 </div>
