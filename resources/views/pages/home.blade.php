@@ -15,7 +15,7 @@
                                     <span class="line-break">investments  <span style="display:inline-block;" class="line-break primary bold special-text"> & analysis</span> </span>
                                 </h2>
                                 <div class="hero-btn">
-                                    <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn btn-outline-primary download-btn std-btn">Download now</a>
+                                    <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn btn-outline-primary download-btn std-btn">+ Add To Chrome </a>
                                 </div>
                             </div>
                         </div>
