@@ -53,4 +53,7 @@ $(document).ready(function () {
           container.addClass("expanded");
         }
       });
+      // $('.navbar-toggler').click(function(){
+      //   $(this).siblings('#navbarNav').toggle();
+      // })
 });

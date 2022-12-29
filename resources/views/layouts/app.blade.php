@@ -61,7 +61,7 @@
     <div class="body-wrapper">
         <header>
             <nav class="navbar navbar-expand-sm navbar-light">
-                <div class="container-fluid">
+                <div class="container-fluid mb-3">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <img src="{{ asset('images/logo.png') }}" alt="" width="38" height="38" class="d-inline-block align-text-top">
                         <h1>Credifana</h1>

@@ -110,6 +110,7 @@
 
 @section('scripts')
     <script>
+        /*
         const GOOGLE_CAPTCHA_SITE_KEY = "{{ env('GOOGLE_CAPTCHA_SITE_KEY') }}";
         $(document).ready(function() {
             grecaptcha.ready(function() {
@@ -120,16 +121,18 @@
                     recaptchaResponse.value = token;
                 });
             });
-        });
+        }); */
     </script>
     <script src="https://www.google.com/recaptcha/api.js?render={{ env('GOOGLE_CAPTCHA_SITE_KEY') }}"></script>
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('js/lib/sweetalert.min.js') }}"></script>
     <script src="{{ asset('js/lib/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/validation.js') }}"></script>
-    <script src="{{ asset('js/lib/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script src="{{ asset('js/lib/bootstrap.bundle.min.js') }}"></script> -->
     <script src="{{ asset('js/lib/intl.utils.min.js') }}"></script>
     <script src="{{ asset('js/lib/intlTelInput.min.js') }}"></script>
     <script src="{{ asset('js/lib/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+   
 @endsection

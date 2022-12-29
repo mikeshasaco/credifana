@@ -209,6 +209,9 @@ body{
             max-width: 1500px;
             margin: 0 auto;
             .table_container {
+                @include max-media($md){
+                    overflow-x: auto;
+                }
                 border-radius: 5px;
                 border: 2px solid #b7b7b7;
                 overflow: hidden;
@@ -219,6 +222,9 @@ body{
                     overflow: hidden;
                     border-collapse: collapse;
                     font-size: 1em;
+                    @include max-media($md){
+                        width: 1250px!important;
+                    }
                     tr{
                         &.section_divider{
                             td{
@@ -226,6 +232,11 @@ body{
                             }
                         }
                         td{
+                            .plan_header{
+                                @include max-media($md){
+                                    width: 300px !important;
+                                }
+                            }
                             .api_quota{
                                 span{
                                     padding: 5px 15px;

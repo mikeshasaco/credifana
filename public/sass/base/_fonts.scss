@@ -40,7 +40,7 @@
 .std-20 {
     @include font(26px, normal, normal, 32px, $font-fredoka);
     @include max-media($sm) {
-        font-size: 16px;
+        font-size: 16px !important;
         line-height: 30px;
     }
 }

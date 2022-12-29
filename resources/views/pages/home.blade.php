@@ -170,18 +170,20 @@
     </section>
 
     <section class="cc-repair-section">
-        <div class="img-container">
-            <img src="images/realtor-full.png" alt="">
-        </div>
-        <div class="container">
-            <div class="repair-container">
-                <div class="content">
-                    <p>
-                        if you interested in buying real estate, <br/> you definitely need Credifana!
-                    </p>
-                </div>
-                <div class="contact-btn">
-                    <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn std-btn-full"><b> + Add to Chrome</b> <span> it's free!</span></a>
+        <div class="container-lg d-flex justify-content-center align-items-center">
+            <div class="img-container">
+                <img src="images/realtor-full.png" alt="">
+            </div>
+            <div class="container">
+                <div class="repair-container">
+                    <div class="content">
+                        <p>
+                            if you interested in buying real estate, <br/> you definitely need Credifana!
+                        </p>
+                    </div>
+                    <div class="contact-btn">
+                        <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn std-btn-full"><b> + Add to Chrome</b> <span> it's free!</span></a>
+                    </div>
                 </div>
             </div>
         </div>

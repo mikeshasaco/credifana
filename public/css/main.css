@@ -5,12 +5,15 @@
 }
 
 body {
-  overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;
   background-color: #f1f1f1;
   perspective: 1px;
   transform-style: preserve-3d;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 .planPoints {
@@ -114,7 +117,7 @@ body {
 }
 @media (max-width: 576px) {
   .std-20, footer .copyright p, section .content p, .std-btn, .std-btn-full {
-    font-size: 16px;
+    font-size: 16px !important;
     line-height: 30px;
   }
 }
@@ -162,15 +165,26 @@ h1, h2, h3, h4, h5, h6, p {
   border-color: #748eff;
 }
 
+@media (max-width: 768px) {
+  section.cc-repair-section .container-lg {
+    flex-direction: column;
+  }
+}
+
 section {
   position: relative;
   padding: 70px 0px;
   z-index: 1;
   background-color: #f1f1f1;
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   section {
     padding: 50px 0px;
+  }
+}
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
   }
 }
 @media (max-width: 768px) {
@@ -180,16 +194,6 @@ section {
 }
 section .heading {
   margin-bottom: 45px;
-}
-@media (max-width: 768px) {
-  section .heading {
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 768px) {
-  section .heading {
-    margin-bottom: 15px;
-  }
 }
 @media (min-width: 992px) {
   span.line-break {
@@ -218,7 +222,6 @@ section .heading {
 }
 header .navbar {
   height: 80px;
-  z-index: 2;
 }
 header .navbar .navbar-brand {
   display: flex;
@@ -237,6 +240,10 @@ header .navbar .navbar-brand h1 {
   color: #748eff;
   margin-bottom: 0;
   margin-left: 10px;
+}
+header .navbar .navbar-collapse {
+  z-index: 10;
+  background-color: #f1f1f1;
 }
 @media (max-width: 576px) {
   header .navbar .navbar-collapse.show {
@@ -278,11 +285,11 @@ header .navbar .navbar-collapse .navbar-nav .nav-link.btn {
 }
 
 footer {
-  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #2e2e2e;
+  padding: 10px;
 }
 footer .copyright {
   text-align: center;
@@ -384,6 +391,11 @@ section.intro-section .heading h2 {
 section.intro-section .content p {
   color: #fff;
 }
+@media (max-width: 768px) {
+  section.process-section .process-wrapper {
+    text-align: center;
+  }
+}
 section.process-section .process-wrapper .heading h2 {
   color: #748eff;
 }
@@ -396,11 +408,11 @@ section.process-section .process-wrapper .video-container {
   box-shadow: 0px 0px 20px #748eff;
   display: inline-block;
   margin-bottom: 45px;
-  width: 480px;
 }
 section.process-section .process-wrapper .video-container video {
   max-width: 100%;
   border-radius: 20px;
+  width: 500px;
 }
 section.process-section .process-wrapper .content p {
   color: #2e2e2e;
@@ -779,12 +791,22 @@ body .pricing-table-container .new_pricing_table_2020_12 .table_container {
   overflow: hidden;
   position: relative;
 }
+@media (max-width: 768px) {
+  body .pricing-table-container .new_pricing_table_2020_12 .table_container {
+    overflow-x: auto;
+  }
+}
 body .pricing-table-container .new_pricing_table_2020_12 .table_container table {
   margin: -1px 0 -1px -1px;
   width: calc(100% + 2px);
   overflow: hidden;
   border-collapse: collapse;
   font-size: 1em;
+}
+@media (max-width: 768px) {
+  body .pricing-table-container .new_pricing_table_2020_12 .table_container table {
+    width: 1250px !important;
+  }
 }
 body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr.section_divider td {
   font-weight: 700;
@@ -794,6 +816,11 @@ body .pricing-table-container .new_pricing_table_2020_12 .table_container table 
   text-align: center !important;
   vertical-align: middle;
   border: 1px solid #b7b7b7;
+}
+@media (max-width: 768px) {
+  body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .plan_header {
+    width: 300px !important;
+  }
 }
 body .pricing-table-container .new_pricing_table_2020_12 .table_container table tr td .api_quota span {
   padding: 5px 15px;

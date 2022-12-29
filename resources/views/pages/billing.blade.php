@@ -2,8 +2,8 @@
 
 @section('content')
 
-<section class="contact-hero-section d-block container-lg">
-    <div class="mb-5">
+<section class="contact-hero-section d-block container-lg pt-0">
+    <div class="">
         @if (Session::has('error'))
         <div class="alert alert-danger m-0">
             <i class="fas fa-check-circle text-success mr-2"></i> {{ Session::get('error') }}

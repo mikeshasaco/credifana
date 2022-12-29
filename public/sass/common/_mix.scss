@@ -39,6 +39,13 @@ h1, h2, h3, h4, h5, h6, p {
         
     }
 }
+section.cc-repair-section{
+    .container-lg{
+        @include max-media($md){
+            flex-direction: column;
+        }
+    }
+}
 
 section {
     position: relative;
@@ -46,8 +53,11 @@ section {
     z-index: 1;
     background-color: #f1f1f1;
     
-    @include max-media($md) {
+    @include max-media($lg) {
         padding: 50px 0px;
+    }
+    @include max-media($md) {
+        flex-direction: column;
     }
     @include max-media($md) {
         padding: 40px 0px;
@@ -55,12 +65,6 @@ section {
 
     .heading {
         margin-bottom: 45px;
-        @include max-media($md) {
-            margin-bottom: 30px;
-        }
-        @include max-media($md) {
-            margin-bottom: 15px;
-        }
         h2 {
             @extend .bold-30;
         }

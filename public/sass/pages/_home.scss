@@ -124,6 +124,9 @@ section {
 
     &.process-section {
         .process-wrapper {
+            @include max-media($md){
+                text-align: center;
+            }
             .heading {
                 h2 {
                     color: $primary;
@@ -138,10 +141,10 @@ section {
                 box-shadow: 0px 0px 20px #748eff;
                 display: inline-block;
                 margin-bottom: 45px;
-                width: 480px;
                 video{
                     max-width:100%;
                     border-radius: 20px;
+                    width: 500px;
                 }
             }
             .content {
