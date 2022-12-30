@@ -95,13 +95,14 @@
                             <td colspan="3"></td>
                         </tr>
                         <tr>
-                            <td><em>Total Requests</em></td>
+                            <td><em>Total API Properties Searches Requests</em></td>
                             <td>
                                 <div class="api_quota"><span class="fixed_amount">20</span></div>
                             </td>
                             <td>
                                 <div class="api_quota">
                                     <span>200</span>
+                                    <em> Monthly</em>
                                 </div>
                             </td>
                             <td>
