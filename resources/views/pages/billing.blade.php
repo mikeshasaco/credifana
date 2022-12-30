@@ -115,20 +115,14 @@
                             <td colspan="3"></td>
                         </tr>
                         <tr>
-                            <td><em>Gross yearly income</em></td>
+                            <td><em>Month/Yearly Gross Income Property Data</em></td>
                             <td><span class="general_check">&#10003;</span></td>
                             <td><span class="general_check">&#10003;</span></td>
                             <td><span class="general_check">&#10003;</span></td>
                         </tr>
                         <tr>
-                            <td><em>Gross monthly income</em></td>
-                            <td><span class="general_check">&#10003;</span></td>
-                            <td><span class="general_check">&#10003;</span></td>
-                            <td><span class="general_check">&#10003;</span></td>
-                        </tr>
-                        <tr>
-                            <td><em>Calculate Monthly and Yearly cash flow for multi-unit properties</em></td>
-                            <td><span class="general_check false">&#10005;</span></td>
+                            <td><em>Monthly/Yearly Cash Flow for properties Data</em></td>
+                            <td><span class="general_check">✓</span></td>
                             <td><span class="general_check">✓</span></td>
                             <td><span class="general_check">✓</span></td>
                         </tr>
