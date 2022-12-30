@@ -127,19 +127,19 @@
                             <td><span class="general_check">✓</span></td>
                         </tr>
                         <tr>
-                            <td><em>Rent data provided for property</em></td>
+                            <td><em>Capitalization Rate </em></td>
                             <td><span class="general_check false">&#10005;</span></td>
                             <td><span class="general_check">✓</span></td>
                             <td><span class="general_check">✓</span></td>
                         </tr>
                         <tr>
-                            <td><em>Total cash flow data, month and yearly data after property expenses</em></td>
+                            <td><em>Cash on Cash Return Rate</em></td>
                             <td><span class="general_check false">&#10005;</span></td>
                             <td><span class="general_check">✓</span></td>
                             <td><span class="general_check">✓</span></td>
                         </tr>
                         <tr>
-                            <td><em>Monthly and Yearly net operator costs</em></td>
+                            <td><em>Monthly/Yearly Net Operator Costs</em></td>
                             <td><span class="general_check false">&#10005;</span></td>
                             <td><span class="general_check">✓</span></td>
                             <td><span class="general_check">✓</span></td>
@@ -152,6 +152,26 @@
                         </tr>
                         <tr>
                             <td><em>Capitalization Rate for property</em></td>
+                            <td><span class="general_check false">&#10005;</span></td>
+                            <td><span class="general_check">✓</span></td>
+                            <td><span class="general_check">✓</span></td>
+                        </tr>
+                        <tr class="section_divider">
+                            <td>Customization</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td><em>Customize multi-Units bedroom and bathroom for properties searches </em></td>
+                            <td><span class="general_check false">&#10005;</span></td>
+                            <td><span class="general_check">✓</span></td>
+                            <td><span class="general_check">✓</span></td>
+                        </tr>
+                        <tr class="section_divider">
+                            <td>Property History</td>
+                            <td colspan="3"></td>
+                        </tr>
+                        <tr>
+                            <td><em>Track properties searches </em></td>
                             <td><span class="general_check false">&#10005;</span></td>
                             <td><span class="general_check">✓</span></td>
                             <td><span class="general_check">✓</span></td>
