@@ -17,12 +17,14 @@
                         <div class="right-block">
                             <div class="top-content">
                                 <div class="heading">
-                                    <h1>Billing at Credifana</h1>
+                                    <center> <h1>Billing at Credifana</h1></center>
                                 </div>
                                 <div class="content">
+                                <center>
                                     <p>
                                         We appreciate your interest in credifana. Have questions, Get in touch now!
                                     </p>
+                                 </center>
                                 </div>
                             </div>
                         </div>
