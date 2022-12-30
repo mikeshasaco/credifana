@@ -95,9 +95,9 @@
                             <td colspan="3"></td>
                         </tr>
                         <tr>
-                            <td><em>Total API Properties Searches Requests</em></td>
+                            <td><em>Total Number of API Properties  Requests</em></td>
                             <td>
-                                <div class="api_quota"><span class="fixed_amount">20</span></div>
+                                <div class="api_quota"><span class="fixed_amount">20</span><em> Monthly</em></div>
                             </td>
                             <td>
                                 <div class="api_quota">
@@ -108,6 +108,7 @@
                             <td>
                                 <div class="api_quota">
                                     <span>500</span>
+                                    <em> Monthly</em>
                                 </div>
                             </td>
                         </tr>
