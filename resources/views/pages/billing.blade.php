@@ -95,7 +95,7 @@
                             <td colspan="3"></td>
                         </tr>
                         <tr>
-                            <td><em>Total Number of API Properties  Requests</em></td>
+                            <td><em>Total Number of API Property  Requests</em></td>
                             <td>
                                 <div class="api_quota"><span class="fixed_amount">20</span><em> Monthly</em></div>
                             </td>
@@ -293,55 +293,92 @@
                 <div class="faq accordion">
                     <div class="question-wrapper">
                         <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
-                            <p class="question" title="">
-                                How many travellers make a Group?</p>
+                            <p class="question" title="">What can I use Credifana for?</p>
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Groups can start at as low as 8 people depending on the travel provider. Plus,
-                            there is no size limit or maximum number of passengers. The more, the merrier!</p>
+                        <p class="answer">Credifana is a real estate chrome extension that allows users to browser properties from popular realtor websites to learn 
+                            property metric such as gross income, cash flow returns, and many more metrics. What make Credifana different is that we use current property data to get a better 
+                            understanding of property value specific to any location across the United States.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
                     <div class="question-wrapper">
                         <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
                             <p class="question" title="">
-                                How much is a group discount?</p>
+                            Why should we use Credifana?</p>
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Discounts vary depending on a number of factors, like the size of your group,
-                            duration of stay, special activities and more. Discuss your group travel requirements with
-                            your
-                            agent and they’ll be sure to find you all the discounts your group is eligible for.</p>
+                        <p class="answer">Credifana helps potential real estate investors learn the numbers before buying property. 
+                            Credifana give accurate analysis of property value specific to the area your interested in. 
+                            Credifana scans properties, size, units, market value specific to the area to provide accurate metrics for that property.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
                     <div class="question-wrapper">
                         <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
-                            <p class="question" title="">What kinds of groups can travel together?</p>
+                            <p class="question" title="">How does Freemium work?</p>
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">You name it! We has booked all kinds of group travel. We’re happy to arrange
-                            friends and family trips, destination weddings, group golf getaways, anniversaries and vow
-                            renewals, as well as get-togethers for clubs and other special interest groups.</p>
+                        <p class="answer">Once you sign up you will receive 20 free clicks to search any properties that you want that integrated with the extension (ex: realtor.com). 
+                            Once your 20 clicks are finished you can either wait till next month or subscribe for either standard or premium plan.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
                     <div class="question-wrapper">
                         <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
-                            <p class="question" title="">
-                                Are there group travel benefits beyond discounted airfare and accommodation?</p>
+                            <p class="question" title="">How do I search for properties using the extension?</p>
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Yes! For starters, groups can take advantage of flexible payment options,
-                            often
-                            with lower deposits required to secure each booking. In addition to discounts up-front, your
-                            group may be eligible for complimentary passengers, and qualify for more flexible terms. Be
-                            sure
-                            to ask your agent for details! Ask your Travel Professional for details!</p>
+                        <p class="answer">After downloading the google chrome extension, you will first need to create a account on the chrome extension. Once done, 
+                            you will need to visit a website that integrated with Credifana extension like realtor.com. Search for a property the extension will scrape information 
+                            about that property like down payment, home price, and many more you may change the information to fit your specific needs.</p>
+                    </div>
+                </div>
+                <div class="faq accordion">
+                    <div class="question-wrapper">
+                        <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
+                            <p class="question" title="">How do I subscribe to a plan?</p>
+                        </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="answer-wrapper">
+                        <p class="answer">Once you sign up you will receive 20 free clicks to search any properties that you want that integrated with the extension (ex: realtor.com). 
+                            Once your 20 clicks are finished you can either wait till next month or subscribe for either standard or premium plan.</p>
+                    </div>
+                </div>
+                <div class="faq accordion">
+                    <div class="question-wrapper">
+                        <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
+                            <p class="question" title="">How do I cancel my plan?</p>
+                        </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="answer-wrapper">
+                        <p class="answer">To cancel your plan all you have to do is open the extension go to one of the websites that we are currently integrated with and click on any property. 
+                            You will see a tab called “plan detail” on the extension click “cancel my plan”. Once you cancel you receive an email letting you know that your subscription has been canceled.</p>
+                    </div>
+                </div>
+                <div class="faq accordion">
+                    <div class="question-wrapper">
+                        <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
+                            <p class="question" title="">Which websites is Credifana currently integrated with? </p>
+                        </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="answer-wrapper">
+                        <p class="answer">Credifana currently integrated with realtor.com, quarter one of 2023 Credifana will be integrating
+                             with more realtor websites such as Zillow, Trulia, redfin and many more.</p>
+                    </div>
+                </div>
+                <div class="faq accordion">
+                    <div class="question-wrapper">
+                        <div class="d-flex align-items-center"><span class="q-mark d-block">Q.</span>
+                            <p class="question" title="">Does the extension keep track of all the properties that previous searched? </p>
+                        </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="answer-wrapper">
+                        <p class="answer">Yes, the Credifana extension keeps track of all the properties that you previously searched under the “property history” tab.</p>
                     </div>
                 </div>
             </div>
