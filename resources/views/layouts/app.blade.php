@@ -94,7 +94,7 @@
             <div class="container">
                 <div class="copyright">
                     <p>&copy; Copyright 2022 Credifana. All rights reserved</p>
-                    <p><a href="{{ route('privacy-policy') }}">Privacy policy</a> | <a href="{{ route('terms-of-use') }}">Terms of use</a></p>
+                    <p><a href="{{ route('privacy-policy') }}">Privacy policy</a> | <a href="{{ route('terms-of-use') }}">Terms of use</a> | <a href="{{ route('pricing'}}">FAQ</a></p>
                 </div>
             </div>
         </footer>

@@ -17,14 +17,12 @@
                         <div class="right-block">
                             <div class="top-content">
                                 <div class="heading">
-                                    <center> <h1>Billing at Credifana</h1></center>
+                                    <h1>Billing at Credifana</h1>
                                 </div>
                                 <div class="content">
-                                <center>
-                                    <p>
+                                    <p style="text-align:center;">
                                         We appreciate your interest in credifana. Have questions, Get in touch now!
                                     </p>
-                                 </center>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +182,7 @@
                 </table>
             </div>
         </div>
-        <div class="modal" id="pricing_page_modal">
+        <!-- <div class="modal" id="pricing_page_modal">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <div class="modal-card-head">
@@ -286,7 +284,7 @@
                 </div>
                 <div class="modal-card-foot"></div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="py-60">
         <div class="text-control-1">
