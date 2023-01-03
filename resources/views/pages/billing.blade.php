@@ -297,9 +297,10 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Credifana is a real estate chrome extension that allows users to browser properties from popular realtor websites to learn 
-                            property metric such as gross income, cash flow returns, and many more metrics. What make Credifana different is that we use current property data to get a better 
-                            understanding of property value specific to any location across the United States.</p>
+                        <p class="answer">Credifana is a real estate chrome extension that allows users to browser properties from
+                            popular realtor websites to learn property metrics such as gross income, cash flow returns, and
+                            many more. What makes Credifana different is that we use current property data to get a
+                            better understanding of property value specific to any location across the United States.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
@@ -310,9 +311,10 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Credifana helps potential real estate investors learn the numbers before buying property. 
-                            Credifana give accurate analysis of property value specific to the area your interested in. 
-                            Credifana scans properties, size, units, market value specific to the area to provide accurate metrics for that property.</p>
+                        <p class="answer">Credifana helps potential real estate investors learn the numbers before buying property.
+                            Credifana give accurate analysis of property values specific to the area you’re interested in.
+                            Credifana scans properties, size, units, market value specific to the area to provide accurate
+                            metrics for that property.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
@@ -322,8 +324,9 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Once you sign up you will receive 20 free clicks to search any properties that you want that integrated with the extension (ex: realtor.com). 
-                            Once your 20 clicks are finished you can either wait till next month or subscribe for either standard or premium plan.</p>
+                        <p class="answer">Once you sign up you will receive 20 free clicks to search any properties that you want that are
+                            integrated with the extension (ex: realtor.com). Once your 20 clicks are finished, you can either
+                            wait until next month for another 20 free clicks or subscribe to another plan.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
@@ -333,9 +336,11 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">After downloading the google chrome extension, you will first need to create a account on the chrome extension. Once done, 
-                            you will need to visit a website that integrated with Credifana extension like realtor.com. Search for a property the extension will scrape information 
-                            about that property like down payment, home price, and many more you may change the information to fit your specific needs.</p>
+                        <p class="answer">After downloading the google chrome extension, you will first need to create an account via the
+                            website or extension. Once done, you will need to visit a real estate website that is integrated
+                            with Credifana extension such as realtor.com. Search for a property and the extension will
+                            scrape information about that property such as down payment, home price, and many more
+                            metrics. You may also change the information and settings to fit your specific needs.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
@@ -345,8 +350,8 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Once you sign up you will receive 20 free clicks to search any properties that you want that integrated with the extension (ex: realtor.com). 
-                            Once your 20 clicks are finished you can either wait till next month or subscribe for either standard or premium plan.</p>
+                        <p class="answer">At Credifana.com, you can click on pricing when logged in and choose a subscription plan that
+                            fits your needs and review each subscription and its perks.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
@@ -367,8 +372,8 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Credifana currently integrated with realtor.com, quarter one of 2023 Credifana will be integrating
-                             with more realtor websites such as Zillow, Trulia, redfin and many more.</p>
+                        <p class="answer">Credifana is currently integrated with realtor.com. Soon, Credifana will be integrating with
+                            more realtor websites such as Zillow, Trulia, Redfin and many more.</p>
                     </div>
                 </div>
                 <div class="faq accordion">
@@ -378,7 +383,8 @@
                         </div><i class="material-icons drop fa-solid fa-chevron-down"></i>
                     </div>
                     <div class="answer-wrapper">
-                        <p class="answer">Yes, the Credifana extension keeps track of all the properties that you previously searched under the “property history” tab.</p>
+                        <p class="answer">Yes, the Credifana extension keeps track of all the properties that you’ve previously searched
+under the “property history” tab.</p>
                     </div>
                 </div>
             </div>
