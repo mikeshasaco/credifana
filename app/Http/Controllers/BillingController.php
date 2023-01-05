@@ -9,6 +9,7 @@ use App\Models\RealtorPaymentHistory;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Exception;
 use App\Mail\SubscriptionSuccess;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class BillingController extends Controller{
@@ -16,8 +17,11 @@ class BillingController extends Controller{
     public function index(Request $request){
         try {
             $data = [];
-            if(isset($request->token) && $request->token != ''){
+            $user = Auth::user();
+            if(isset($request->token) && $request->token != '') {
                 $data['email'] = decrypt($request->token);
+            } else if ($user) {
+                $data['email'] = $user->email;
             }
             return view('pages.billing',$data);
 
@@ -29,7 +33,7 @@ class BillingController extends Controller{
     public function billingCheckout(Request $request){
 
         if(!isset($request->email) ||  $request->email == ''){
-            return redirect()->route('pricing')->with('error','User does not found.');
+            return redirect()->route('pricing')->with('error','Please Login/Register on credifana to continue.');
         }
 
         require base_path().'/vendor/autoload.php';

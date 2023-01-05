@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Api\UserAuthController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
@@ -21,6 +22,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/formHandler', [FormController::class, 'index'])->name('form');
+
+Route::get('/login', function(){
+    if (Auth::user()) {
+        return redirect('/');
+    } else {
+        return view('pages.login');
+    }
+})->name('login');
+
+Route::get('/register', function(){
+    if (Auth::user()) {
+        return redirect('/');
+    } else {
+        return view('pages.register');
+    }
+})->name('register');
+
+Route::post('/login', [AuthController::class, 'login'])->name('log-in');
+Route::post('/custom-login', [AuthController::class, 'custom_login'])->name('custom-login');
+Route::post('/register', [AuthController::class, 'register'])->name('signup');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/forgot-password', function(){
     return view('pages.forgot-password');

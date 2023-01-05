@@ -25,10 +25,10 @@ class UserAuthController extends Controller
             try {
                 $validated = $login_data->validated();
                 $user_data = User::where('email', $validated['email'])->first();
-                
                 if ($user_data && $user_data->count() > 0) {
-                    $user_data->token = encrypt($user_data->email); 
+                    $user_data->token = encrypt($user_data->email);
                     if (Hash::check($validated['password'], $user_data->password)) {
+                        $user_data->PID = $user_data->password;
                         return response()->json([
                             'status' => 'success',
                             'user_data' => $user_data
@@ -173,7 +173,6 @@ class UserAuthController extends Controller
                 if ($user) {
                     Mail::to($email)->send(new ResetPasswordEmail(['email' => $email]));
                     return back()->with('success', __('Please check your email to reset password.'));
-
                 } else {
                     throw new Exception("Email not found.");
                 }

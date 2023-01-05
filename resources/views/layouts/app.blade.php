@@ -58,6 +58,51 @@
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+
+    @php 
+        if (!isset($_COOKIE['UD'])) {
+            if (Auth::user()) {
+                Session::flush();
+                Auth::logout();
+            }
+        }
+    @endphp
+
+    <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
+    <script>
+        let UD = "<?php echo isset($_COOKIE['UD']) ? $_COOKIE['UD'] : ''; ?>";
+        let user = '<?php echo Auth::user(); ?>';
+        if(document.readyState == 'loading' && user == ''){
+            if (UD && UD != '') {
+                UD = JSON.parse(atob(UD));
+                $('.spinner-body').show();
+                $('.body-wrapper').hide();
+    
+                $.ajax({
+                    type: "post",
+                    url: "{{ route('custom-login')}}",
+                    data: {
+                        userData: UD,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    success: function (response) {
+                        response = JSON.parse(response);
+                        if(response.status == 'success') {
+                            $('.spinner-body').hide();
+                            $('.body-wrapper').show();
+                            location.reload();
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+    <div class="spinner-body" style="display: none;">
+        <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+            <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+    </div>
+
     <div class="body-wrapper">
         <header>
             <nav class="navbar navbar-expand-sm navbar-light">
@@ -71,6 +116,21 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
+                            @if (Auth::user())
+                                <li class="nav-item px-2">
+                                    <a class="nav-link" href="javascript:void(0)">Hi, {{ Auth::user()->fname.' '.Auth::user()->lname }}</a>
+                                </li>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link" href="{{ route('logout') }}" id="logout_btn">Logout</a>
+                                </li>
+                            @else
+                                <li class="nav-item px-2">
+                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                </li>
+                                <li class="nav-item px-2">
+                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                </li>
+                            @endif
                             <li class="nav-item px-2">
                                 <a class="nav-link" href="{{ route('pricing') }}">Pricing</a>
                             </li>
@@ -89,7 +149,6 @@
         <main>
             @yield('content')
         </main>
-
         <footer>
             <div class="container">
                 <div class="copyright">
@@ -99,8 +158,6 @@
             </div>
         </footer>
     </div>
-
-    <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('js/lib/bootstrap.bundle.min.js') }}"></script>
     @yield('scripts')
 </body>
