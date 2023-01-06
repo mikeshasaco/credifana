@@ -82,6 +82,7 @@ class UserAuthController extends Controller
             $user_data['password'] = Hash::make($user_data['password']);
             $registeredUser = User::create($user_data);
             $registeredUser->token = encrypt($registeredUser->email); 
+            $registeredUser->PID = $registeredUser->password;
             
             //start basic plan for this user
             $subscriptionSaveData = [
