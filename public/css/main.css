@@ -1213,8 +1213,8 @@ section {
   align-items: center;
 }
 
-.forgot_password_main_section {
-  height: calc(100vh - 160px);
+.forgot_password_main_section, .profile_page {
+  height: calc(100vh - 164px);
 }
 
 .input-group-addon {
@@ -1242,6 +1242,115 @@ section {
     max-width: 500px;
   }
 }
+.plan-details {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.plan-details .plan-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.plan-details .plan-status span:first-child {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+  margin-bottom: 5px;
+}
+.plan-details .plan-status span:last-child {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+  color: #748EFF;
+}
+.plan-details .clicks-status {
+  min-width: 200px;
+  width: 200px;
+}
+.plan-details .clicks-status .clicks-info {
+  display: flex;
+  margin-bottom: 16px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.plan-details .clicks-status .clicks-info div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.plan-details .clicks-status .clicks-info div span:first-child {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+}
+.plan-details .clicks-status .clicks-info div span:last-child {
+  font-family: "Raleway", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 29px;
+  color: #241F1F;
+}
+.plan-details .clicks-status .expired-info span {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  font-family: "Raleway", sans-serif;
+  color: #000;
+}
+.plan-details .clicks-status .expired-info span .expired-date {
+  font-weight: 900;
+}
+
+.plan-btns {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.plan-btns .plan-cancel-status {
+  margin: 0px !important;
+  display: none;
+}
+.plan-btns #cancel_btn {
+  margin-right: 10px;
+}
+.plan-btns #cancel_btn_cntnr {
+  display: flex;
+  align-items: center;
+}
+.plan-btns #cancel_btn_cntnr .btn {
+  height: 50px;
+  width: 195px;
+  border-radius: 24px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 19px;
+  border: none;
+  border: 3px solid #9D0000;
+  background-color: white;
+  color: #9D0000;
+  text-transform: uppercase;
+}
+.plan-btns div:last-child a {
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+  border: none;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

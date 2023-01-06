@@ -32,7 +32,7 @@ class AuthController extends Controller
                     $user->PID = $user->password;
                     setCookie('UD', base64_encode($user), time() + 86400);
 
-                    return redirect()->intended('/')->with('login', __(json_encode($user)));
+                    return redirect()->intended('/profile')->with('login', __("Login successfully"));
                 } else {
                     return back()->with('error', __('Invalid Credentials'));
                 }
@@ -123,7 +123,10 @@ class AuthController extends Controller
             Mail::to($user_data['email'])->send(new SignupTemplate(['username' => $username, 'plan_type' => $plan_type, 'total_click' => $total_click, 'plan_start' => $plan_start, 'plan_end' => $plan_end]));
             $credentials = $request->only('email', 'password');
 
-            if (Auth::attempt($credentials)) {
+            if (Auth::loginUsingId($registeredUser->id)) {
+                $registeredUser->PID = $registeredUser->password;
+                setCookie('UD', base64_encode($registeredUser), time() + 86400);
+
                 return redirect()->intended('/')->with('success', __('User registered successfully'));
             }
         } catch (Exception $e) {

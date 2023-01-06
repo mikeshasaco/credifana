@@ -5,6 +5,47 @@
     -ms-border-radius: $width;
     -o-border-radius: $width;
 }
+@mixin shadowBox {
+    box-shadow: 0px 0px 6px rgba(#000000, 16%);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin clicks {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 29px;
+    color: $Black;
+}
+
+@mixin commonBtn {
+    height: 50px;
+    width: 195px;
+    border-radius: 24px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 19px;
+    border: none;
+}
+
+@mixin propertyTitle {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000;
+}
+
+@mixin apiDataBlockTitle {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+}
 @mixin shadow($x: 0px, $y: 3px, $blur: 6px, $color: rgba(0,0,0,.16)) {
     -moz-box-shadow:    $x $y $blur 0 $color;
     -webkit-box-shadow: $x $y $blur 0 $color;

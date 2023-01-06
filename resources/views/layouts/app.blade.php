@@ -118,7 +118,7 @@
                         <ul class="navbar-nav">
                             @if (Auth::user())
                                 <li class="nav-item px-2">
-                                    <a class="nav-link" href="javascript:void(0)">Hi, {{ Auth::user()->fname.' '.Auth::user()->lname }}</a>
+                                    <a class="nav-link" href="{{ route('profile') }}">Hi, {{ Auth::user()->fname.' '.Auth::user()->lname }}</a>
                                 </li>
                                 <li class="nav-item px-2">
                                     <a class="nav-link" href="{{ route('logout') }}" id="logout_btn">Logout</a>

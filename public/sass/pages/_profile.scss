@@ -1,0 +1,85 @@
+
+    .plan-details{
+        @include shadowBox;
+        padding: 15px;
+        .plan-status{
+            display: flex;
+            justify-content: center;
+            align-items: center ;
+            flex-direction: column;
+            span{
+                &:first-child{
+                    @include apiDataBlockTitle;
+                    margin-bottom: 5px;
+                }
+                &:last-child{
+                    @include propertyTitle;
+                    color: $LightSkyBlue;
+                }
+            }
+        }
+        .clicks-status{
+            min-width: 200px;
+            width: 200px;
+            .clicks-info{
+                display: flex;
+                margin-bottom: 16px;
+                justify-content: space-between;
+                flex-direction: column;
+                div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    span{
+                        &:first-child{
+                            @include apiDataBlockTitle;
+                        }
+                        &:last-child{
+                            @include clicks;
+                        }
+                    }
+                }
+            }
+            .expired-info{
+                span{
+                    @include apiDataBlockTitle;
+                    .expired-date{
+                        font-weight: 900;
+                    }
+                }
+            }
+        }
+    }
+
+    .plan-btns{
+        margin-top: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .plan-cancel-status{
+            margin: 0px !important;
+            display: none;
+        }
+        #cancel_btn{
+            margin-right: 10px;
+        }
+        #cancel_btn_cntnr{
+            display: flex;
+            align-items: center;
+            .btn{
+                @include commonBtn;
+                border: 3px solid $DarkRed;
+                background-color: white;
+                color: $DarkRed;
+                text-transform: uppercase;
+            }
+        }
+        div{
+            &:last-child{
+                a{
+                    @include propertyTitle;
+                    border: none;
+                }
+            }
+        }
+    }

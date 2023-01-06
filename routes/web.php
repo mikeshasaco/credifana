@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,6 +82,9 @@ Route::get('/terms-of-use', function(){
 Route::post('/webhook-event', [BillingController::class, 'webhookEvent'])->name('webhook-event');
 Route::get('/test', [BillingController::class, 'check_test'])->name('test');
 Route::get('/cron-event', [BillingController::class, 'cronEvent'])->name('cron-event');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::post('/cancel-subscription', [ProfileController::class, 'cancelSubscription'])->name('cancel-subscription');
+
 Route::get('/signup-mail', function(){
     return view('mail.signuptemplate');
 })->name('cron-event');
