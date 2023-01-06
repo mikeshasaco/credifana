@@ -105,7 +105,7 @@
 
     <div class="body-wrapper">
         <header>
-            <nav class="navbar navbar-expand-sm navbar-light">
+            <nav class="navbar navbar-expand-md navbar-light">
                 <div class="container-fluid mb-3">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <img src="{{ asset('images/logo.png') }}" alt="" width="38" height="38" class="d-inline-block align-text-top">
@@ -117,12 +117,29 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             @if (Auth::user())
-                                <li class="nav-item px-2">
-                                    <a class="nav-link" href="{{ route('profile') }}">Hi, {{ Auth::user()->fname.' '.Auth::user()->lname }}</a>
-                                </li>
-                                <li class="nav-item px-2">
-                                    <a class="nav-link" href="{{ route('logout') }}" id="logout_btn">Logout</a>
-                                </li>
+                            <div class="dropdown d-inline-block">
+                                <button type="button" class="btn header-item" id="page-header-user-dropdown"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="outline: 0!important;">
+                                    <img src="{{ asset('images/user-profile.png') }}" style="margin-top: -3px;" alt="User profile" width="25" height="25" class="d-inline-block align-text-top">
+                                    <span class="d-xl-inline-block ms-1" key="t-henry">{{ucfirst(Auth::user()->fname).' '.ucfirst(Auth::user()->lname) }}</span>
+                                    <i class="fa fa-chevron-down d-xl-inline-block"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end" style="right: -3px!important;">
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        @lang('Profile')
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ route('logout') }}">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        @lang('Logout')
+                                    </a>
+                                    {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form> --}}
+                                </div>
+                            </div>
                             @else
                                 <li class="nav-item px-2">
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
