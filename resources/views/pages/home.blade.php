@@ -18,7 +18,7 @@
                                     <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn btn-outline-primary download-btn std-btn">Click Here To Download </a>
                                 </div>
                                 <div>
-                                <span>Watch Video Tutorial for any questions, email us for any questions! </span>
+                                <span>Watch Video Tutorial on How To Use Chrome Extension! </span>
                                  </div>
                             </div>
                         </div>
