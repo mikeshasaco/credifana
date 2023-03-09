@@ -182,7 +182,11 @@
                         </p>
                     </div>
                     <div class="contact-btn">
-                        <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn std-btn-full"><b> + Add to Chrome</b> <span> it's free!</span></a>
+                        <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn std-btn-full"><b> Click Here To Download</b> <span> it's free!</span></a>
+                    </div>
+                    <div>
+                        <span>Watch Video Tutorial for any questions, email us </span>
+
                     </div>
                 </div>
             </div>
