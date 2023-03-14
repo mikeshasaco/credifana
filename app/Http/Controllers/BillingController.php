@@ -73,7 +73,7 @@ class BillingController extends Controller{
         // pre($newSubscriptionData);
 
         $cc = User::get()->toArray();
-        pre($cc);
+        pre(array_column($cc,'email'));
     }
 
     public function webhookEvent(Request $request){
