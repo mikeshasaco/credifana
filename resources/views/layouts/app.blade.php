@@ -155,7 +155,7 @@
                                 <a class="nav-link" href="{{ route('contact') }}">Contact Us</a>
                             </li>
                             <li class="nav-item px-2 btn-item">
-                                <a class="nav-link btn" target="_blank" href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco">+ Add To Chrome</a>
+                                <a class="nav-link btn" target="_blank" href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco">Click Here To Download</a>
                             </li>
                         </ul>
                     </div>

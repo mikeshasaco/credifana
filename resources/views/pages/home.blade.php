@@ -15,8 +15,11 @@
                                     <span class="line-break">investments  <span style="display:inline-block;" class="line-break primary bold special-text"> & analysis</span> </span>
                                 </h2>
                                 <div class="hero-btn">
-                                    <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn btn-outline-primary download-btn std-btn">+ Add To Chrome </a>
+                                    <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn btn-outline-primary download-btn std-btn">Click Here To Download </a>
                                 </div>
+                                <div>
+                                <span>Watch Video Tutorial on How To Use Chrome Extension! </span>
+                                 </div>
                             </div>
                         </div>
                     </div>
@@ -182,7 +185,11 @@
                         </p>
                     </div>
                     <div class="contact-btn">
-                        <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn std-btn-full"><b> + Add to Chrome</b> <span> it's free!</span></a>
+                        <a href="https://chrome.google.com/webstore/detail/credifana/fflmomjllcnfoegpmpfllcikpobkdmco" target="_blank" class="btn std-btn-full"><b> Click Here To Download</b> <span> it's free!</span></a>
+                    </div>
+                    <div>
+                        <span>Watch Video Tutorial for any questions, email us </span>
+
                     </div>
                 </div>
             </div>
