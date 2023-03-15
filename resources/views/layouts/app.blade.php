@@ -38,6 +38,15 @@
   gtag('config', 'G-NVBPE6Y89E');
 </script>
 
+
+<!-- Event snippet for Website sale conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11093564458/6vGKCIqiv5EYEKq46akp',
+      'transaction_id': ''
+  });
+</script>
+
     <!-- Meta Pixel Code -->
     <script>
         !function(f,b,e,v,n,t,s)
